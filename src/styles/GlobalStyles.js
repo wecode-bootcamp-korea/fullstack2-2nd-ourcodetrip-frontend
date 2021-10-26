@@ -10,6 +10,16 @@ export default styled.createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    color: #343a40;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    font-weight: 400;
+  }
+
   a,
   a:visited,
   a:active {

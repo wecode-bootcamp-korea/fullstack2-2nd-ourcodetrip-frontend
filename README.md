@@ -1,3 +1,5 @@
+![스크린샷 2021-10-26 오후 2 12 28](https://user-images.githubusercontent.com/61101022/139016869-025a4716-8c98-4dac-8be9-512d9d8fd651.png)
+
 # OurCodeTrip ✈️
 
 아워코드트립과 함께 나다운 진짜 코드 여정을 떠나보세요!

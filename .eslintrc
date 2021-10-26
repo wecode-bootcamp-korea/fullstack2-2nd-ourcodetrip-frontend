@@ -2,7 +2,7 @@
   "extends": ["react-app", "plugin:prettier/recommended"],
   "rules": {
     "no-console": "warn",
-    "no-unused-vars": ["error", { "argsIgnorePattern": "req|res|next|val" }],
-    "prefer-destructuring": ["error", { "object": true, "array": false }]
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "req|res|next|val" }],
+    "prefer-destructuring": ["warn", { "object": true, "array": false }]
   }
 }
