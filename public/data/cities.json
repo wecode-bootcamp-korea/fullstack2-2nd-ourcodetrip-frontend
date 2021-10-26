@@ -1,0 +1,47 @@
+[
+  {
+    "imgUrl": "https://i.imgur.com/YxwmBx9.jpg",
+    "region": "서울",
+    "id": 1
+  },
+  {
+    "imgUrl": "https://i.imgur.com/Sx7zUpe.jpg",
+    "region": "제주도",
+    "id": 2
+  },
+  {
+    "imgUrl": "https://i.imgur.com/rug4Daj.jpg",
+    "region": "부산",
+    "id": 3
+  },
+  {
+    "imgUrl": "https://i.imgur.com/67YWFLN.jpg",
+    "region": "마산",
+    "id": 4
+  },
+  {
+    "imgUrl": "https://i.imgur.com/vXcgZFS.jpg",
+    "region": "경주",
+    "id": 5
+  },
+  {
+    "imgUrl": "https://i.imgur.com/gV6tWCV.jpg",
+    "region": "창원",
+    "id": 6
+  },
+  {
+    "imgUrl": "https://i.imgur.com/7zsrg7U.jpg",
+    "region": "수원",
+    "id": 7
+  },
+  {
+    "imgUrl": "https://i.imgur.com/7BhpeVt.jpg",
+    "region": "광명",
+    "id": 8
+  },
+  {
+    "imgUrl": "https://i.imgur.com/klsmuhO.jpg",
+    "region": "울산",
+    "id": 9
+  }
+]

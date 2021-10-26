@@ -1,13 +1,30 @@
+import { css } from 'styled-components';
+
 const calcRem = size => `${size / 16}rem`;
 
+const WrapSize = '1060px';
+
+const Wrapper = css`
+  margin: 0 auto;
+  width: ${WrapSize};
+`;
+
+const flexCenterContainer = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const fontSizes = {
-  small: calcRem(14),
-  base: calcRem(16),
-  lg: calcRem(18),
+  xs: calcRem(11),
+  small: calcRem(12),
+  underBase: calcRem(13),
+  base: calcRem(14),
+  lg: calcRem(15),
   xl: calcRem(20),
   xxl: calcRem(22),
   xxxl: calcRem(24),
-  titleSize: calcRem(50),
+  titleSize: calcRem(38),
 };
 
 const paddings = {
@@ -35,6 +52,11 @@ const interval = {
   xxl: calcRem(200),
 };
 
+const borders = {
+  basic: `1px solid #D6D6D6`,
+  basicRadius: `5px`,
+};
+
 const verticalInterval = {
   base: `${calcRem(10)} 0 ${calcRem(10)} 0`,
 };
@@ -50,9 +72,12 @@ const deviceSizes = {
 const colors = {
   black: '#000000',
   white: '#FFFFFF',
-  gray_1: '#222222',
-  gray_2: '#767676',
-  green_1: '#3cb46e',
+  gray_1: '#848c94',
+  gray_2: '#666d75',
+  gray_3: '#f4f4f4',
+  darkGray: '#343a40',
+  orange: '#FF9A00',
+  primaryBlue: '#2B95EC',
 };
 
 const device = {
@@ -61,6 +86,33 @@ const device = {
   mobileL: `only screen and (max-width: ${deviceSizes.mobileL})`,
   tablet: `only screen and (max-width: ${deviceSizes.tablet})`,
   tabletL: `only screen and (max-width: ${deviceSizes.tabletL})`,
+};
+
+const shadow = {
+  button:
+    '0 0 0 1px rgba(0 0 0 / 5%), 0 2px 6px 0 rgb(0 0 0 / 5%), 0 4px 12px 0 rgb(0 0 0 / 5%)',
+  hover:
+    '0 0 0 1px rgb(0 0 0 / 15%), 0 2px 6px 0 rgb(0 0 0 / 5%), 0 8px 12px 0 rgb(0 0 0 / 20%)',
+};
+
+const buttons = {
+  button_1: css`
+    height: 40px;
+    width: 110px;
+    background: none;
+    border: ${borders.basic};
+    border-radius: ${borders.basicRadius};
+
+    &:hover {
+      box-shadow: ${shadow.button};
+    }
+
+    & span {
+      color: #495056;
+      font-size: ${fontSizes.base};
+      font-weight: 500;
+    }
+  `,
 };
 
 const theme = {
@@ -72,6 +124,18 @@ const theme = {
   margins,
   interval,
   verticalInterval,
+  WrapSize,
+  borders,
+  shadow,
+  EventTitle: css`
+    margin-bottom: 6px;
+    color: ${colors.darkGray};
+    font-size: ${fontSizes.xxl};
+    font-weight: 600;
+  `,
+  Wrapper,
+  buttons,
+  flexCenterContainer,
 };
 
 export default theme;
