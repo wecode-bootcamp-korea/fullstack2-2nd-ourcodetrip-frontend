@@ -9,8 +9,9 @@ import theme from './styles/theme';
 ReactDOM.render(
   <>
     <GlobalStyles />
-    <ThemeProvider theme={theme} />
-    <Routes />
+    <ThemeProvider theme={theme}>
+      <Routes />
+    </ThemeProvider>
   </>,
   document.getElementById('root')
 );
