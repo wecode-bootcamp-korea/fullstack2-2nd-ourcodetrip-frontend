@@ -8,12 +8,9 @@ import TourTicket from './pages/TourTicket/TourTicket';
 import SignIn from './pages/User/SignIn';
 import SignUp from './pages/User/SignUp';
 
-import GlobalStyles from './styles/GlobalStyles';
-
 const Routes = () => {
   return (
     <BrowserRouter>
-      <GlobalStyles />
       <TopNav />
       <Switch>
         <Route exact path="/" component={Main} />
