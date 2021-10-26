@@ -1,0 +1,37 @@
+{
+  "unsignedNavInfo": [
+    { "title": "파트너 등록하기", "link": "/" },
+    { "title": "로그인", "link": "/" }
+  ],
+  "signedNavInfo": [
+    { "title": "위시리스트", "link": "/" },
+    { "title": "내 여행", "link": "/" },
+    { "title": "메시지", "link": "/" },
+    { "title": "알림", "link": "/" }
+  ],
+  "business": [
+    { "title": "항공권", "link": "/flight", "icon": "flight" },
+    { "title": "숙소", "link": "/accommodation", "icon": "house" },
+    { "title": "렌트카", "link": "/rentcar", "icon": "car" },
+    { "title": "투어•티켓", "link": "/tourticket", "icon": "ticket" }
+  ],
+  "promotions": [
+    { "title": "해외여행스캐너", "link": "/" },
+    { "title": "할인혜택", "link": "/" },
+    { "title": "랜선투어", "link": "/" },
+    { "title": "제주호텔 특가", "link": "/" },
+    { "title": "해외패키지", "link": "/" }
+  ],
+  "initialNavColor": {
+    "/": "#666d75",
+    "/detail": "#666d75",
+    "/list": "#666d75",
+    "/signin": "#666d75",
+    "/signup": "#666d75"
+  },
+  "backgroundUrl": {
+    "/accommodation": "https://i.ibb.co/bQcHy08/background-sukso.jpg",
+    "/flight": "https://i.ibb.co/MgVL76c/background-flight.jpg",
+    "/rentcar": "https://i.ibb.co/SnS0dXD/background-rentcar.jpg"
+  }
+}
