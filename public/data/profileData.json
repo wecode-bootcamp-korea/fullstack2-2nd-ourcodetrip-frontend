@@ -1,0 +1,10 @@
+{
+  "profileData": {
+    "id": 1,
+    "name": "이민재",
+    "email": "king119@naver.com",
+    "phoneNumber": "010-1119-1112",
+    "isEmailAgreed": true,
+    "isSmsAgreed": false
+  }
+}
