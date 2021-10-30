@@ -1,12 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { BsLightningChargeFill } from 'react-icons/bs';
+import { HiBadgeCheck } from 'react-icons/hi';
 
 const Cards = ({
+  type,
   id,
   imgUrl,
   category,
@@ -24,8 +26,9 @@ const Cards = ({
   options,
   slideNumber,
   currentSlide,
-  // history,
 }) => {
+  const [imageReady, setImageReady] = useState(false);
+  const [likeButtonClicked, setlikeButtonClicked] = useState(onUsersWishList);
   const hoverEffectRef = useRef();
   const history = useHistory();
 
@@ -34,9 +37,6 @@ const Cards = ({
     return hoverEffectRef.current.removeEventListener('mouseover', hoverEffect);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const [imageReady, setImageReady] = useState(false);
-  const [likeButtonClicked, setlikeButtonClicked] = useState(onUsersWishList);
 
   const imageLoader = () => {
     const img = new window.Image();
@@ -47,7 +47,12 @@ const Cards = ({
   };
 
   useEffect(() => {
-    if (currentSlide + 1 !== slideNumber) return;
+    if (
+      currentSlide + 1 !== slideNumber &&
+      type === 'carousel' &&
+      !options.autoSliding
+    )
+      return;
     imageLoader();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSlide]);
@@ -70,6 +75,7 @@ const Cards = ({
 
   return (
     <Card
+      type={type}
       options={options}
       onClick={() => {
         alert(`[임시] 상품페이지로 이동합니다\n?id=${id}&category=${category}`);
@@ -108,7 +114,7 @@ const Cards = ({
             </div>
             <div className="cardFooter">
               {totalReviews ? (
-                <div className="rating">
+                <Rating>
                   <span className="ratingStars">
                     {displayRatingToStars(rating, {
                       marginRight: 0,
@@ -117,12 +123,14 @@ const Cards = ({
                     })}
                   </span>
                   <span className="totalReviews">{totalReviews}</span>
-                </div>
+                </Rating>
               ) : (
-                <div className="ratingAlternative">
-                  <i>&</i>
+                <RatingAlternative>
+                  <i>
+                    <HiBadgeCheck />
+                  </i>
                   <span>후기 이벤트</span>
-                </div>
+                </RatingAlternative>
               )}
               <div className="pricing">
                 {price ? (
@@ -169,14 +177,18 @@ export default Cards;
 
 const Card = styled.li`
   position: relative;
-  min-width: ${({ options }) => {
-    const value = options.cardWidth;
-    return value;
-  }}px;
-  background-color: ${props => props.theme.colors.white};
-  border: ${props => props.theme.borders.basic};
-  border-radius: ${props => props.theme.borders.basicRadius};
-  transition: transform 0.2s, box-shadow 0.2s;
+  ${({ options }) => {
+    const { cardWidth } = options;
+    return css`
+      min-width: ${cardWidth}px;
+      width: ${cardWidth}px;
+    `;
+  }};
+  background-color: ${({ theme }) => theme.colors.white};
+  border: ${({ theme }) => theme.borders.basic};
+  border-radius: ${({ theme }) => theme.borders.basicRadius};
+  list-style: none;
+  transition: transform 0.1s, box-shadow 0.2s;
   overflow: hidden;
   cursor: pointer;
 
@@ -192,7 +204,11 @@ const Card = styled.li`
 
   &.hover {
     box-shadow: ${({ theme }) => theme.shadow.button};
-    transform: translateY(-2px);
+    transform: ${({ type, options }) => {
+      return type === 'carousel' && !options.autoSliding
+        ? 'translateY(-3px)'
+        : 'none';
+    }};
   }
 `;
 
@@ -207,9 +223,9 @@ const ImageContainer = styled.dt`
     right: 0;
     height: 28px;
     width: 80px;
-    color: ${props => props.theme.colors.white};
-    background-color: ${props => props.theme.colors.orange};
-    font-size: ${props => props.theme.fontSizes.xs};
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.orange};
+    font-size: ${({ theme }) => theme.fontSizes.xs};
     text-align: center;
     line-height: 28px;
   }
@@ -235,8 +251,8 @@ const InfoContainer = styled.dd`
   .cardHeader {
     .categoryRegion {
       padding-bottom: 4px;
-      color: ${props => props.theme.colors.gray_1};
-      font-size: ${props => props.theme.fontSizes.small};
+      color: ${({ theme }) => theme.colors.gray_1};
+      font-size: ${({ theme }) => theme.fontSizes.small};
       font-weight: 300;
     }
 
@@ -244,7 +260,7 @@ const InfoContainer = styled.dd`
       display: -webkit-box;
       line-height: 1.5;
       height: 44px;
-      font-size: ${props => props.theme.fontSizes.base};
+      font-size: ${({ theme }) => theme.fontSizes.base};
       font-weight: 500;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -257,35 +273,25 @@ const InfoContainer = styled.dd`
   .cardFooter {
     position: relative;
 
-    .rating {
-      margin-bottom: 6px;
-
-      .totalReviews {
-        margin-left: 5px;
-        color: ${props => props.theme.colors.gray_1};
-        font-size: ${props => props.theme.fontSizes.small};
-      }
-    }
-
     .pricing {
       position: relative;
 
       .price {
         margin-right: 5px;
-        color: ${props => props.theme.colors.gray_1};
-        font-size: ${props => props.theme.fontSizes.small};
+        color: ${({ theme }) => theme.colors.gray_1};
+        font-size: ${({ theme }) => theme.fontSizes.small};
         text-decoration: line-through;
       }
 
       .offerPrice {
-        color: ${props => props.theme.colors.gray_2};
-        font-size: ${props => props.theme.fontSizes.base};
+        color: ${({ theme }) => theme.colors.gray_2};
+        font-size: ${({ theme }) => theme.fontSizes.base};
         font-weight: 500;
       }
 
       .salesUnit {
-        color: ${props => props.theme.colors.gray_1};
-        font-size: ${props => props.theme.fontSizes.underBase};
+        color: ${({ theme }) => theme.colors.gray_1};
+        font-size: ${({ theme }) => theme.fontSizes.underBase};
       }
 
       .quickBooking {
@@ -293,10 +299,36 @@ const InfoContainer = styled.dd`
         position: absolute;
         bottom: 0;
         right: 0;
-        color: ${props => props.theme.colors.gray_1};
-        font-size: ${props => props.theme.fontSizes.small};
+        color: ${({ theme }) => theme.colors.gray_1};
+        font-size: ${({ theme }) => theme.fontSizes.small};
       }
     }
+  }
+`;
+
+const Rating = styled.div`
+  margin-bottom: 6px;
+
+  .totalReviews {
+    margin-left: 5px;
+    color: ${({ theme }) => theme.colors.gray_1};
+    font-size: ${({ theme }) => theme.fontSizes.small};
+  }
+`;
+
+const RatingAlternative = styled.div`
+  ${({ theme }) => theme.flexCenterContainer};
+  justify-content: flex-start;
+  margin-bottom: 6px;
+  color: ${({ theme }) => theme.colors.primaryBlue};
+
+  i {
+    margin-right: 2px;
+    font-size: ${({ theme }) => theme.fontSizes.base};
+  }
+
+  span {
+    font-size: ${({ theme }) => theme.fontSizes.small};
   }
 `;
 
@@ -311,6 +343,7 @@ const LikeButton = styled.div`
     color: #ffffff;
     font-size: 18px;
     transition: transform 0.2s;
+    filter: drop-shadow(${({ theme }) => theme.shadow.heart});
   }
 
   &:hover > * {

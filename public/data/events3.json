@@ -1,9 +1,9 @@
 {
-  "title": "전국 핫한 펜션&캠핑 🏡",
+  "title": "제주 필수 티켓 🎫",
   "list": [
     {
       "id": 1,
-      "imgUrl": "https://images.unsplash.com/photo-1592495213732-684c751b4c1f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzh8fHRyaXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "imgUrl": "https://images.unsplash.com/photo-1492963060540-65e3aae73127?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "category": "액티비티",
       "region": "제주도",
       "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 1",
@@ -18,7 +18,7 @@
     },
     {
       "id": 2,
-      "imgUrl": "https://images.unsplash.com/photo-1532339142463-fd0a8979791a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+      "imgUrl": "https://images.unsplash.com/photo-1530065928592-fb0dc85d2f27?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "category": "액티비티",
       "region": "제주도",
       "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 2",
@@ -32,7 +32,7 @@
     },
     {
       "id": 3,
-      "imgUrl": "https://images.unsplash.com/photo-1529171696861-bac785a44828?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
+      "imgUrl": "https://images.unsplash.com/photo-1513737567531-bc431c8e5e85?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "category": "액티비티",
       "region": "제주도",
       "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 3",
@@ -47,7 +47,7 @@
     },
     {
       "id": 4,
-      "imgUrl": "https://images.unsplash.com/photo-1590598016454-45b7e0ac125c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHRyaXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "imgUrl": "https://images.unsplash.com/photo-1546869372-6d6d4d9c36e6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "category": "액티비티",
       "region": "제주도",
       "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 4",
@@ -62,7 +62,7 @@
     },
     {
       "id": 5,
-      "imgUrl": "https://images.unsplash.com/photo-1584064554482-49774e585e30?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHRyaXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "imgUrl": "https://images.unsplash.com/photo-1499363536502-87642509e31b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDR8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "category": "액티비티",
       "region": "제주도",
       "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 5",
@@ -77,7 +77,7 @@
     },
     {
       "id": 6,
-      "imgUrl": "https://images.unsplash.com/photo-1571569481471-1753fb013630?ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODF8fHRyaXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "imgUrl": "https://images.unsplash.com/photo-1563698146901-a5eaa900836f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTh8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "category": "액티비티",
       "region": "제주도",
       "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 6",
@@ -91,7 +91,7 @@
     },
     {
       "id": 7,
-      "imgUrl": "https://images.unsplash.com/photo-1523975864490-174dd4d9a41e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8am91cm5leXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "imgUrl": "https://images.unsplash.com/photo-1572492887328-4d2ecd6375cc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "category": "액티비티",
       "region": "제주도",
       "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 7",
@@ -106,7 +106,7 @@
     },
     {
       "id": 8,
-      "imgUrl": "https://images.unsplash.com/photo-1502791451862-7bd8c1df43a7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fHRyYXZlbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "imgUrl": "https://images.unsplash.com/photo-1565397362685-7df98f212b29?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "category": "액티비티",
       "region": "제주도",
       "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 8",
@@ -121,7 +121,7 @@
     },
     {
       "id": 9,
-      "imgUrl": "https://images.unsplash.com/photo-1528543606781-2f6e6857f318?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTB8fHRyYXZlbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "imgUrl": "https://images.unsplash.com/photo-1543239251-46748ac25da7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzB8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "category": "액티비티",
       "region": "제주도",
       "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 9",
@@ -136,25 +136,10 @@
     },
     {
       "id": 10,
-      "imgUrl": "https://images.unsplash.com/photo-1497262693247-aa258f96c4f5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDR8fHRyYXZlbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "imgUrl": "https://images.unsplash.com/photo-1592928843042-e566cb94cfed?ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODh8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "category": "액티비티",
       "region": "제주도",
       "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 10",
-      "rating": 3.3,
-      "totalReviews": 7,
-      "price": 40000,
-      "offerPrice": 28000,
-      "salesUnit": "1인",
-      "onUsersWishList": false,
-      "guaranteedLowestPrice": true,
-      "quickBooking": true
-    },
-    {
-      "id": 11,
-      "imgUrl": "https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTd8fHRyYXZlbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      "category": "액티비티",
-      "region": "제주도",
-      "title": "[중문] 이 카드가 마지막 카드입니다",
       "rating": 3.3,
       "totalReviews": 7,
       "price": 40000,
