@@ -36,6 +36,22 @@ const generateOptions = (
   };
 };
 
+export const expCityCarousel = generateOptions(
+  1060,
+  6,
+  20,
+  107,
+  0,
+  false,
+  false,
+  true,
+  false,
+  'center',
+  false,
+  false,
+  {}
+);
+
 export const cityCarousel = generateOptions(
   1060,
   4,

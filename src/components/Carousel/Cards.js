@@ -258,7 +258,7 @@ const InfoContainer = styled.dd`
 
     h3 {
       display: -webkit-box;
-      line-height: 1.5;
+      line-height: 1.6;
       height: 44px;
       font-size: ${({ theme }) => theme.fontSizes.base};
       font-weight: 500;
@@ -266,7 +266,7 @@ const InfoContainer = styled.dd`
       text-overflow: ellipsis;
       word-wrap: break-word;
       -webkit-line-clamp: 2;
-      -moz-box-orient: vertical;
+      -webkit-box-orient: vertical;
     }
   }
 

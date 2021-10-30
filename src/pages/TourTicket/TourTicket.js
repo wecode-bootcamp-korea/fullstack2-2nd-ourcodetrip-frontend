@@ -1,12 +1,98 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const TourTicket = () => {
-  return <StyledTourTicket></StyledTourTicket>;
+import { MultipleApiCall } from '../../utils/ApiCall';
+
+import Carousel from '../../components/Carousel/Carousel';
+import Events from '../Main/Events/Events';
+import {
+  expCityCarousel,
+  banner,
+} from '../../components/Carousel/defaultOptions';
+
+const Experiences = () => {
+  const [data, setData] = useState([]);
+
+  const requests = [
+    { url: '/data/destinations.json', method: 'GET' },
+    { url: '/data/banner2.json', method: 'GET' },
+    { url: '/data/events4.json', method: 'GET' },
+    { url: '/data/experiences.json', method: 'GET' },
+    { url: '/data/experiences2.json', method: 'GET' },
+    { url: '/data/experiences3.json', method: 'GET' },
+  ];
+
+  useEffect(() => {
+    const AjaxCall = MultipleApiCall(requests);
+    AjaxCall.then(data => {
+      const [cities, banners, events, events2, events3, events4] = data;
+      const formattedCities = [
+        ...cities,
+        {
+          id: cities.length + 1,
+          name: '전체 여행지',
+          link: '/cities',
+          imgUrl: 'https://i.imgur.com/scLUqqE.jpg',
+        },
+      ];
+      setData({ formattedCities, banners, events, events2, events3, events4 });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <React.Fragment>
+      <CityCarouselContainer>
+        <Carousel
+          cardData={data.formattedCities}
+          options={{
+            ...expCityCarousel,
+            customCardStyle: {
+              border: 'none',
+              boxShadow: '0 0 6px rgb(0 0 0 / 30%)',
+            },
+          }}
+        />
+      </CityCarouselContainer>
+      <MainBanner>
+        <Carousel cardData={data.banners} options={banner} />
+      </MainBanner>
+      <Events
+        cardData={data.events?.list}
+        title={data.events?.title}
+        eventLink={true}
+      />
+      <Events
+        cardData={data.events2?.list}
+        title={data.events2?.title}
+        eventLink={true}
+      />
+      <Events
+        cardData={data.events3?.list}
+        title={data.events3?.title}
+        eventLink={true}
+      />
+      <Events
+        cardData={data.events4?.list}
+        title={data.events4?.title}
+        eventLink={true}
+      />
+    </React.Fragment>
+  );
 };
 
-export default TourTicket;
+export default Experiences;
 
-const StyledTourTicket = styled.nav`
-  /* Some Styles... */
+const CityCarouselContainer = styled.div`
+  &::before {
+    content: '';
+    position: absolute;
+    height: 94px;
+    width: 100%;
+    background-color: ${({ theme }) => theme.colors.primaryBlue};
+  }
+`;
+
+const MainBanner = styled.article`
+  margin: 40px 0 60px;
 `;

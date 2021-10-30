@@ -5,11 +5,12 @@ import { MdLocationCity } from 'react-icons/md';
 
 import Carousel from '../../components/Carousel/Carousel';
 import { cityCarousel, banner } from '../../components/Carousel/defaultOptions';
-import { Events } from './Events/Events';
+import Events from './Events/Events';
 import { MultipleApiCall } from '../../utils/ApiCall';
 
 const Main = () => {
   const [data, setData] = useState([]);
+  const [eventData, setEventData] = useState([]);
 
   const requests = [
     { url: '/data/cities.json', method: 'GET' },
@@ -22,11 +23,14 @@ const Main = () => {
   useEffect(() => {
     const AjaxCall = MultipleApiCall(requests);
     AjaxCall.then(data => {
-      const [cities, banners, events, events2, events3] = data;
-      setData({ cities, banners, events, events2, events3 });
+      const [cities, banners, ...events] = data;
+      setData({ cities, banners });
+      setEventData(events);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const [event1, event2, event3] = eventData;
 
   return (
     <React.Fragment>
@@ -45,9 +49,10 @@ const Main = () => {
       <MainBanner>
         <Carousel cardData={data.banners} options={banner} />
       </MainBanner>
-      <Events cardData={data.events?.list} title={data.events?.title} />
-      <Events cardData={data.events2?.list} title={data.events2?.title} />
-      <Events cardData={data.events3?.list} title={data.events3?.title} />
+      <Events cardData={event3?.list} title={event3?.title} />
+      <Events cardData={event1?.list} title={event1?.title} />
+      <Events cardData={event2?.list} title={event2?.title} />
+      <Events cardData={event3?.list} title={event3?.title} />
     </React.Fragment>
   );
 };
