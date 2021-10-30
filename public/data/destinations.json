@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "서울",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/fRZck0c.jpg"
+  },
+  {
+    "id": 2,
+    "name": "제주도",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/aYH1YSL.jpg"
+  },
+  {
+    "id": 3,
+    "name": "부산",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/o7j7RVl.jpg"
+  },
+  {
+    "id": 4,
+    "name": "마산",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/ouXHFEX.jpg"
+  },
+  {
+    "id": 5,
+    "name": "경주",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/dI9VJl4.jpg"
+  },
+  {
+    "id": 6,
+    "name": "수원",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/3Br8Rhy.jpg"
+  },
+  {
+    "id": 7,
+    "name": "경상도",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/d1Om15c.jpg"
+  },
+  {
+    "id": 8,
+    "name": "전라도",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/hcL7VUk.jpg"
+  },
+  {
+    "id": 9,
+    "name": "뉴욕",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/86NWf4f.jpg"
+  },
+  {
+    "id": 10,
+    "name": "파리",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/Qv28xKo.jpg"
+  },
+  {
+    "id": 11,
+    "name": "밀라노",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/3hWtcQo.jpg"
+  },
+  {
+    "id": 12,
+    "name": "싱가포르",
+    "link": "/",
+    "imgUrl": "https://i.imgur.com/FbdFTP1.jpg"
+  }
+]

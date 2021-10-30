@@ -129,7 +129,6 @@ const theme = {
   borders,
   shadow,
   EventTitle: css`
-    margin-bottom: 6px;
     color: ${colors.darkGray};
     font-size: ${fontSizes.xxl};
     font-weight: 600;

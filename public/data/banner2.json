@@ -1,0 +1,27 @@
+[
+  {
+    "imgUrl": "https://i.imgur.com/5KfQxve.jpg",
+    "title": "생산성의고도",
+    "id": 1
+  },
+  {
+    "imgUrl": "https://i.imgur.com/57vaKzc.jpg",
+    "title": "뉴욕개발자",
+    "id": 2
+  },
+  {
+    "imgUrl": "https://i.imgur.com/11eLDkt.jpg",
+    "title": "아코트",
+    "id": 3
+  },
+  {
+    "imgUrl": "https://i.imgur.com/MlGTEnr.jpg",
+    "title": "파리",
+    "id": 4
+  },
+  {
+    "imgUrl": "https://i.imgur.com/XXSnefp.jpg",
+    "title": "세모노",
+    "id": 5
+  }
+]

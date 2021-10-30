@@ -81,7 +81,7 @@ const Carousel = ({ cardData = [], options = defaultOptions }) => {
         )}
       </div>
       {showController && cardData.length && !autoSliding ? (
-        <Controller>
+        <Controller options={options}>
           {currentSlide !== 0 ? (
             <button className="prev" onClick={prevSlide}>
               <GrPrevious />
@@ -157,7 +157,8 @@ const Slider = styled.ul`
 const Controller = styled.div`
   button {
     position: absolute;
-    top: 45%;
+    top: ${({ options: { showContent, cardImageHeight } }) =>
+      showContent ? `${cardImageHeight}px` : `${cardImageHeight / 2 - 10}px`};
     height: 40px;
     width: 40px;
     line-height: 52px;
