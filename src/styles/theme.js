@@ -93,6 +93,7 @@ const shadow = {
     '0 0 0 1px rgba(0 0 0 / 5%), 0 2px 6px 0 rgb(0 0 0 / 5%), 0 4px 12px 0 rgb(0 0 0 / 5%)',
   hover:
     '0 0 0 1px rgb(0 0 0 / 15%), 0 2px 6px 0 rgb(0 0 0 / 5%), 0 8px 12px 0 rgb(0 0 0 / 20%)',
+  heart: '0 0 2px rgb(0 0 0 / 30%)',
 };
 
 const buttons = {

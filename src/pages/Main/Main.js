@@ -11,23 +11,22 @@ import { MultipleApiCall } from '../../utils/ApiCall';
 const Main = () => {
   const [data, setData] = useState([]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const requests = [
     { url: '/data/cities.json', method: 'GET' },
     { url: '/data/banner.json', method: 'GET' },
     { url: '/data/events.json', method: 'GET' },
+    { url: '/data/events2.json', method: 'GET' },
+    { url: '/data/events3.json', method: 'GET' },
   ];
 
   useEffect(() => {
     const AjaxCall = MultipleApiCall(requests);
     AjaxCall.then(data => {
-      const [cities, banners, events] = data;
-      setData({ cities, banners, events });
+      const [cities, banners, events, events2, events3] = data;
+      setData({ cities, banners, events, events2, events3 });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const { cities, banners, events } = data;
 
   return (
     <React.Fragment>
@@ -41,14 +40,14 @@ const Main = () => {
             </Link>
           </button>
         </div>
-        <Carousel cardData={cities} options={cityCarousel} />
+        <Carousel cardData={data.cities} options={cityCarousel} />
       </CitySuggestion>
       <MainBanner>
-        <Carousel cardData={banners} options={banner} />
+        <Carousel cardData={data.banners} options={banner} />
       </MainBanner>
-      <Events cardData={events} title={'전국 핫한 펜션&캠핑 🏡 '} />
-      <Events cardData={events} title={'경복궁 베스트 상품'} />
-      <Events cardData={events} title={'제주 필수 티켓 🎫'} />
+      <Events cardData={data.events?.list} title={data.events?.title} />
+      <Events cardData={data.events2?.list} title={data.events2?.title} />
+      <Events cardData={data.events3?.list} title={data.events3?.title} />
     </React.Fragment>
   );
 };
@@ -56,7 +55,7 @@ const Main = () => {
 export default Main;
 
 const CitySuggestion = styled.article`
-  margin-bottom: 64px;
+  margin-bottom: 70px;
 
   .citiesHeader {
     ${({ theme }) => theme.Wrapper};
@@ -86,5 +85,5 @@ const CitySuggestion = styled.article`
 `;
 
 const MainBanner = styled.article`
-  margin: 70px 0 90px;
+  margin: 0 0 80px;
 `;

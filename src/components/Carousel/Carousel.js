@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { GrPrevious, GrNext } from 'react-icons/gr';
+import { GoPrimitiveDot } from 'react-icons/go';
 
-import Cards from './Cards';
 import CarouselSkeleton from './Skeleton/CarouselSkeleton';
 import displayRatingToStars from '../../utils/displayRatingToStars';
+
+import Cards from './Cards';
 import { defaultOptions } from './defaultOptions';
 
 const Carousel = ({ cardData = [], options = defaultOptions }) => {
@@ -30,7 +32,7 @@ const Carousel = ({ cardData = [], options = defaultOptions }) => {
       return;
     }
     setCurrentSlide(currentSlide + 1);
-  }, [currentSlide, maxSlide, options]); // 특정 state가 바뀌면 다시 함수를 정의하기 위해서 ? 비용을 줄이고자 (최적화 관점)
+  }, [currentSlide, maxSlide, options]);
 
   const prevSlide = () => {
     if (currentSlide <= 0) {
@@ -41,7 +43,6 @@ const Carousel = ({ cardData = [], options = defaultOptions }) => {
   };
 
   useEffect(() => {
-    // 사이드 이펙트가 발생할 시점을 작성해주어야 한다. (부차적 효과의 관리) 언제?
     const { autoSliding, slideTiming } = options;
     if (!autoSliding) return;
     const interval = setInterval(() => {
@@ -49,6 +50,8 @@ const Carousel = ({ cardData = [], options = defaultOptions }) => {
     }, slideTiming * 1000);
     return () => clearInterval(interval);
   }, [options, nextSlide]);
+
+  const { displayNumber, showController, autoSliding } = options;
 
   return (
     <Wrapper>
@@ -64,8 +67,9 @@ const Carousel = ({ cardData = [], options = defaultOptions }) => {
             {cardData.map((data, idx) => {
               return (
                 <Cards
+                  type="carousel"
                   key={data.id || idx}
-                  slideNumber={Math.ceil((idx + 1) / options.displayNumber)}
+                  slideNumber={Math.ceil((idx + 1) / displayNumber)}
                   options={options}
                   displayRatingToStars={displayRatingToStars}
                   currentSlide={currentSlide}
@@ -76,24 +80,51 @@ const Carousel = ({ cardData = [], options = defaultOptions }) => {
           </Slider>
         )}
       </div>
-      {options.showController && cardData.length ? (
+      {showController && cardData.length && !autoSliding ? (
         <Controller>
-          {currentSlide !== 0 || options.autoSliding ? (
+          {currentSlide !== 0 ? (
             <button className="prev" onClick={prevSlide}>
               <GrPrevious />
             </button>
           ) : null}
 
-          {currentSlide < maxSlide - 1 || options.autoSliding ? (
+          {currentSlide < maxSlide - 1 ? (
             <button className="next" onClick={nextSlide}>
               <GrNext />
             </button>
           ) : null}
         </Controller>
       ) : null}
+      {autoSliding ? (
+        <DotController>
+          {cardData.map((_, idx) => {
+            return (
+              <Bullet
+                key={idx}
+                currentSlide={currentSlide}
+                id={idx}
+                onClick={() => setCurrentSlide(idx)}
+              >
+                <GoPrimitiveDot />
+              </Bullet>
+            );
+          })}
+        </DotController>
+      ) : null}
     </Wrapper>
   );
 };
+
+const DotController = styled.ul`
+  ${({ theme }) => theme.flexCenterContainer};
+`;
+
+const Bullet = styled.li`
+  font-size: ${({ theme }) => theme.fontSizes.xl};
+  color: ${({ theme }) => theme.colors.black};
+  opacity: ${({ currentSlide, id }) => (currentSlide === id ? 0.5 : 0.1)};
+  cursor: pointer;
+`;
 
 export default Carousel;
 
