@@ -42,7 +42,7 @@ const Lower = styled.div`
   align-items: center;
   max-width: 1060px;
   margin: 0 auto;
-  color: ${props => (props.color ? '#495056' : '#ffffff')};
+  color: ${props => (props.color ? '#fff' : '#495056')};
 `;
 
 const LowerNavLink = styled(Link)`
@@ -57,7 +57,7 @@ const LowerNavLink = styled(Link)`
   }
   &:hover {
     /* border-bottom: 3px solid #79bef5; */
-    border-bottom: 3px solid ${props => (props.color ? '#79bef5' : '#ffffff')};
+    border-bottom: 3px solid ${props => (props.color ? '#fff' : '#79bef5')};
   }
   span {
     height: 50px;

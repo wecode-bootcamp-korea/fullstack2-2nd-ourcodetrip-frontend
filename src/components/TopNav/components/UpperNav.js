@@ -18,7 +18,6 @@ const UpperNav = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
   const changingColor = initialNavColor[pathname];
-
   return (
     <Upper>
       <UpperLeft>
@@ -97,8 +96,8 @@ const UpperLeft = styled.div`
 
 const Logo = styled.img.attrs(props => ({
   src: props.color
-    ? `${process.env.PUBLIC_URL}/images/logo.png`
-    : `${process.env.PUBLIC_URL}/images/logo-white.png`,
+    ? `${process.env.PUBLIC_URL}/images/logo-white.png`
+    : `${process.env.PUBLIC_URL}/images/logo.png`,
 }))`
   width: auto;
   height: 25px;
@@ -116,7 +115,7 @@ const SearchBar = styled.input.attrs({
   border: 0;
   border-radius: 10px;
   background-color: ${props =>
-    props.color ? '#f5f6f7' : 'rgba(245,246,247,.15)'};
+    props.color ? 'rgba(245,246,247,.15)' : '#f5f6f7'};
 
   transition: ease-out 0.15s;
 
@@ -126,7 +125,7 @@ const SearchBar = styled.input.attrs({
   &::placeholder {
     font-size: 15px;
     font-weight: 500;
-    color: ${props => (props.color ? '#888' : '#ffffff')};
+    color: ${props => (props.color ? '#fff' : '#888')};
   }
 `;
 
@@ -134,7 +133,7 @@ const SearchingGlass = styled(AiOutlineSearch)`
   position: relative;
   top: -1px;
   right: 284px;
-  color: ${props => (props.color ? '#888' : '#ffffff')};
+  color: ${props => (props.color ? '#fff' : '#888')};
   font-size: 19px;
   &:focus {
     color: #888;
@@ -143,7 +142,7 @@ const SearchingGlass = styled(AiOutlineSearch)`
 
 const UpperRight = styled.ul`
   display: flex;
-  color: ${props => props.color || '#ffffff'};
+  color: ${props => props.color || '#666d75'};
   font-size: 15px;
   li {
     height: 39px;
@@ -157,26 +156,26 @@ const UpperRightLink = styled(Link)`
   transition: linear 0.05s;
   border-radius: 4px;
   &:hover {
-    background-color: ${props => (props.color ? '#f5f6f7' : 'rgba(0,0,0,0.1)')};
+    background-color: ${props => (props.color ? 'rgba(0,0,0,0.1)' : '#f5f6f7')};
   }
 `;
 
 const SignUpButton = styled(Link)`
   padding: 8px 30px;
   margin: 0 1px 0 3px;
-  border: 1px solid ${props => (props.color ? '#a7b4f9' : '#ffffff')};
+  border: 1px solid ${props => (props.color ? '#fff' : '#a7b4f9')};
   border-radius: 3px;
   font-weight: 500;
   transition: linear 0.05s;
   &:hover {
-    background-color: ${props => (props.color ? '#e7f4fd' : 'rgba(0,0,0,0.1)')};
-    color: ${props => (props.color ? '#2b96ed' : '#ffffff')};
+    background-color: ${props => (props.color ? 'rgba(0,0,0,0.1)' : '#e7f4fd')};
+    color: ${props => (props.color ? '#fff' : '#2b96ed')};
   }
   &:link {
-    color: ${props => (props.color ? '#2b96ed' : '#ffffff')};
+    color: ${props => (props.color ? '#fff' : '#2b96ed')};
   }
   &:visited {
-    color: ${props => (props.color ? '#2b96ed' : '#ffffff')};
+    color: ${props => (props.color ? '#fff' : '#2b96ed')};
   }
 `;
 
