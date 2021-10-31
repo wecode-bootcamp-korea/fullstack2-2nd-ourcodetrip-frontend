@@ -23,11 +23,11 @@
     { "title": "해외패키지", "link": "/" }
   ],
   "initialNavColor": {
-    "/": "#666d75",
-    "/detail": "#666d75",
-    "/list": "#666d75",
-    "/signin": "#666d75",
-    "/signup": "#666d75"
+    "/flight": "#ffffff",
+    "/accommodation": "#ffffff",
+    "/rentcar": "#ffffff",
+    "/tourticket": "#ffffff",
+    "/city": "#ffffff"
   },
   "backgroundUrl": {
     "/accommodation": "https://i.ibb.co/bQcHy08/background-sukso.jpg",
