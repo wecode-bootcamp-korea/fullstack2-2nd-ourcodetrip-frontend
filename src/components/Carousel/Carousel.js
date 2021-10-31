@@ -4,7 +4,7 @@ import { GrPrevious, GrNext } from 'react-icons/gr';
 import { GoPrimitiveDot } from 'react-icons/go';
 
 import CarouselSkeleton from './Skeleton/CarouselSkeleton';
-import displayRatingToStars from '../../utils/displayRatingToStars';
+import { displayRatingToStars } from '../../utils/displayRatingToStars';
 
 import Cards from './Cards';
 import { defaultOptions } from './defaultOptions';

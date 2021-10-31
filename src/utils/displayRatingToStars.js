@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 
-const displayRatingToStars = (rating, starStyle) => {
+export const displayRatingToStars = (rating, starStyle) => {
   const filledStars = new Array(Math.floor(rating)).fill(
     <BsStarFill style={starStyle} />
   );
@@ -25,4 +25,7 @@ const displayRatingToStars = (rating, starStyle) => {
   );
 };
 
-export default displayRatingToStars;
+export const displayStars = (count, starStyle) => {
+  const stars = new Array(count).fill(<BsStarFill style={starStyle} />);
+  return stars.map((item, key) => React.cloneElement(item, { key }));
+};

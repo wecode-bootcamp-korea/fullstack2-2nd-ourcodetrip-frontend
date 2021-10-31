@@ -1,0 +1,40 @@
+{
+  "overview": {
+    "totalReviews": 347,
+    "ratingAvg": 4.8,
+    "totalReviewsForEachRating": [294, 37, 10, 1, 5],
+    "totalReviewImages": 25
+  },
+  "reviewImages": [
+    {
+      "reviewId": 1,
+      "url": "/"
+    }
+  ],
+  "threads": [
+    {
+      "reviewId": 1,
+      "userName": "이코딩",
+      "createdAt": 1635677041477,
+      "rating": 5,
+      "reviewImages": null,
+      "review": "저렴하고 편안하게 다녀와서 좋았어요!"
+    },
+    {
+      "reviewId": 2,
+      "userName": "김자바",
+      "createdAt": 1635577041477,
+      "rating": 5,
+      "reviewImages": null,
+      "review": "일단 가본 아쿠아리움중 볼거리가 많았습니다"
+    },
+    {
+      "reviewId": 3,
+      "userName": "박순자",
+      "createdAt": 1635392513213,
+      "rating": 5,
+      "reviewImages": "https://images.unsplash.com/photo-1575980202155-18b6c1e49169?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXF1YXJpdW18ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "review": "쿠폰 이용해서 오랜만에 즐거운 시간 보냈어요\\n12시쯤 입장하니 붐비지 않았어요\\n아이들은 엄청 좋아하네요~~"
+    }
+  ]
+}
