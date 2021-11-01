@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom';
 import { MdLocationCity } from 'react-icons/md';
 
 import Carousel from '../../components/Carousel/Carousel';
-import { cityCarousel, banner } from '../../components/Carousel/defaultOptions';
 import Events from './Events/Events';
+import { cityCarousel, banner } from '../../components/Carousel/defaultOptions';
 import { MultipleApiCall } from '../../utils/ApiCall';
+
+import MainPopUp from '../../components/Modals/MainPopUp';
+import { getCookie } from '../../utils/cookie';
 
 const Main = () => {
   const [data, setData] = useState([]);
   const [eventData, setEventData] = useState([]);
+  const [popUpData, setPopUpData] = useState([]);
 
   const requests = [
     { url: '/data/cities.json', method: 'GET' },
@@ -18,11 +22,13 @@ const Main = () => {
     { url: '/data/events.json', method: 'GET' },
     { url: '/data/events2.json', method: 'GET' },
     { url: '/data/events3.json', method: 'GET' },
+    { url: '/data/popup.json', method: 'GET' },
   ];
 
   useEffect(() => {
     const AjaxCall = MultipleApiCall(requests);
     AjaxCall.then(data => {
+      setPopUpData(...data.splice(-1, 1));
       const [cities, banners, ...events] = data;
       setData({ cities, banners });
       setEventData(events);
@@ -32,8 +38,11 @@ const Main = () => {
 
   const [event1, event2, event3] = eventData;
 
+  const doesUserBlockedPopUp = getCookie('Mainpopup');
+
   return (
     <React.Fragment>
+      {!doesUserBlockedPopUp ? <MainPopUp popUpData={popUpData} /> : null}
       <CitySuggestion>
         <div className="citiesHeader">
           <h2>어디로 떠나세요?</h2>
