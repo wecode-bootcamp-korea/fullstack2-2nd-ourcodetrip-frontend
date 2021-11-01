@@ -1,0 +1,59 @@
+{
+  "name": "서울",
+  "engName": "Seoul",
+  "country": "대한민국",
+  "backgroundImg": "https://i.imgur.com/3k6vMR0.jpg",
+  "services": [
+    { "id": 1, "name": "투어・티켓", "query": "service=tourticket" },
+    { "id": 2, "name": "숙소", "query": "service=accommodation" },
+    { "id": 3, "name": "렌터카・교통", "query": "service=transportation" },
+    { "id": 4, "name": "항공권", "query": "service=airline" }
+  ],
+  "subCategories": [
+    {
+      "categoryId": 1,
+      "name": "투어",
+      "query": "category=tour"
+    },
+    {
+      "categoryId": 2,
+      "name": "입장권",
+      "query": "category=ticket"
+    },
+    {
+      "categoryId": 3,
+      "name": "액티비티",
+      "query": "category=activity"
+    },
+    {
+      "categoryId": 4,
+      "name": "클래스",
+      "query": "category=class"
+    },
+    {
+      "categoryId": 5,
+      "name": "스냅촬영",
+      "query": "category=snap"
+    },
+    {
+      "categoryId": 6,
+      "name": "미식",
+      "query": "category=foodie"
+    },
+    {
+      "categoryId": 7,
+      "name": "스파/힐링",
+      "query": "category=spa_healing"
+    },
+    {
+      "categoryId": 8,
+      "name": "이동/교통편의",
+      "query": "category=transportation"
+    },
+    {
+      "categoryId": 9,
+      "name": "대여",
+      "query": "category=rental"
+    }
+  ]
+}

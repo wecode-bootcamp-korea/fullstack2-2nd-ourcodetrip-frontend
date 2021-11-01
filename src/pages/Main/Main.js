@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { MdLocationCity } from 'react-icons/md';
 
 import Carousel from '../../components/Carousel/Carousel';
-import Events from './Events/Events';
+import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { cityCarousel, banner } from '../../components/Carousel/defaultOptions';
 import { MultipleApiCall } from '../../utils/ApiCall';
 
@@ -58,10 +58,14 @@ const Main = () => {
       <MainBanner>
         <Carousel cardData={data.banners} options={banner} />
       </MainBanner>
-      <Events cardData={event3?.list} title={event3?.title} />
-      <Events cardData={event1?.list} title={event1?.title} />
-      <Events cardData={event2?.list} title={event2?.title} />
-      <Events cardData={event3?.list} title={event3?.title} />
+      <SectionHeader title={event3?.title} />
+      <Carousel cardData={event3?.list} />
+      <SectionHeader title={event1?.title} />
+      <Carousel cardData={event1?.list} />
+      <SectionHeader title={event2?.title} />
+      <Carousel cardData={event2?.list} />
+      <SectionHeader title={event3?.title} />
+      <Carousel cardData={event3?.list} />
     </React.Fragment>
   );
 };
@@ -69,8 +73,6 @@ const Main = () => {
 export default Main;
 
 const CitySuggestion = styled.article`
-  margin-bottom: 70px;
-
   .citiesHeader {
     ${({ theme }) => theme.Wrapper};
     margin: 56px auto 32px auto;
@@ -98,6 +100,4 @@ const CitySuggestion = styled.article`
   }
 `;
 
-const MainBanner = styled.article`
-  margin: 0 0 80px;
-`;
+const MainBanner = styled.article``;

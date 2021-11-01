@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { MultipleApiCall } from '../../utils/ApiCall';
 
 import Carousel from '../../components/Carousel/Carousel';
-import Events from '../Main/Events/Events';
+import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import {
   expCityCarousel,
   banner,
@@ -57,26 +57,30 @@ const Experiences = () => {
       <MainBanner>
         <Carousel cardData={data.banners} options={banner} />
       </MainBanner>
-      <Events
-        cardData={data.events?.list}
+      <SectionHeader
         title={data.events?.title}
-        eventLink={true}
+        linkDesc={'더 보기 >'}
+        subLink={'/'}
       />
-      <Events
-        cardData={data.events2?.list}
+      <Carousel cardData={data.events?.list} />
+      <SectionHeader
         title={data.events2?.title}
-        eventLink={true}
+        linkDesc={'더 보기 >'}
+        subLink={'/'}
       />
-      <Events
-        cardData={data.events3?.list}
+      <Carousel cardData={data.events2?.list} />
+      <SectionHeader
         title={data.events3?.title}
-        eventLink={true}
+        linkDesc={'더 보기 >'}
+        subLink={'/'}
       />
-      <Events
-        cardData={data.events4?.list}
+      <Carousel cardData={data.events3?.list} />
+      <SectionHeader
         title={data.events4?.title}
-        eventLink={true}
+        linkDesc={'더 보기 >'}
+        subLink={'/'}
       />
+      <Carousel cardData={data.events4?.list} />
     </React.Fragment>
   );
 };

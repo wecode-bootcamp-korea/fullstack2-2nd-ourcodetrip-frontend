@@ -27,6 +27,7 @@ const fontSizes = {
   underTitleSize: calcRem(32),
   titleSize: calcRem(38),
   titleSize_2: calcRem(48),
+  pageHeaderSize: calcRem(50),
 };
 
 const paddings = {
@@ -84,7 +85,8 @@ const colors = {
 const borders = {
   basic: `1px solid #D6D6D6`,
   basicRadius: `5px`,
-  light: `1px solid ${colors.lightGray}`,
+  select: `3px solid ${colors.primaryBlue}`,
+  unSelect: `3px solid rgba(0,0,0,0)`,
 };
 
 const device = {
@@ -150,8 +152,9 @@ const theme = {
   shadow,
   EventTitle: css`
     color: ${colors.darkGray};
-    font-size: ${fontSizes.xxl};
-    font-weight: 600;
+    font-size: ${fontSizes.xxxl};
+    font-weight: 500;
+    letter-spacing: -1px;
   `,
   Wrapper,
   buttons,
