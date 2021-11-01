@@ -25,6 +25,7 @@ const EditingProfile = lazy(() =>
 const AuthenticationPage = lazy(() =>
   import('./pages/User/Profile/AuthenticationPage/AuthenticationPage')
 );
+const Cities = lazy(() => import('./pages/Cities/Cities'));
 
 const Routes = () => {
   return (
@@ -42,9 +43,11 @@ const Routes = () => {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/tourticket" component={TourTicket} />
-          <Route path="/tourticket/list" component={TourTicketList} />
-          <Route path="/tourticket/:id" component={TourTicketDetail} />
+          <Route exact path="/cities" component={Cities} />
+          <Route exact path="/tourticket/list" component={TourTicketList} />
+          <Route exact path="/tourticket/:id" component={TourTicketDetail} />
           <Route exact path="/review" component={Review} />
+          <Route exact path="/cities" component={Cities} />
           <Route exact path="/wishlists" component={WishList} />
           <Route exact path="/profile" component={ManagingProfile} />
           <Route path="/auth" component={AuthenticationPage} />

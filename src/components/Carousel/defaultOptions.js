@@ -52,6 +52,22 @@ export const expCityCarousel = generateOptions(
   {}
 );
 
+export const tagCityCarousel = generateOptions(
+  1060,
+  6,
+  20,
+  185,
+  0,
+  false,
+  false,
+  true,
+  false,
+  'center',
+  false,
+  false,
+  {}
+);
+
 export const cityCarousel = generateOptions(
   1060,
   4,
@@ -98,6 +114,22 @@ export const defaultOptions = generateOptions(
   true,
   true,
   true,
+  'center',
+  false,
+  null,
+  {}
+);
+
+export const magazine = generateOptions(
+  1060,
+  3,
+  20,
+  280,
+  0,
+  false,
+  false,
+  true,
+  false,
   'center',
   false,
   null,

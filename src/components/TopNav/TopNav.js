@@ -21,5 +21,6 @@ export default TopNav;
 const StyledTopNav = styled.nav`
   position: relative;
   border-bottom: 1px solid #dee2e6;
+  min-width: 1060px;
   z-index: 1;
 `;

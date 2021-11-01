@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { MultipleApiCall, ApiCall } from '../../utils/ApiCall';
-import Events from '../Main/Events/Events';
 import Cards from '../../components/Carousel/Cards';
+import Carousel from '../../components/Carousel/Carousel';
+import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { listCards } from '../../components/Carousel/defaultOptions';
 import { displayRatingToStars } from '../../utils/displayRatingToStars';
 
@@ -64,12 +65,12 @@ const WishList = () => {
         </MainContainer>
       </Main>
       <SuggestionContainer>
-        <Events
-          cardData={suggestionData?.list}
+        <SectionHeader
           title={`${cities[selectedTab]} 여행자가 함께 본 상품`}
-          link={'/'}
-          eventLink
+          subLink={'/'}
+          linkDesc={'더 보기'}
         />
+        <Carousel cardData={suggestionData?.list} />
       </SuggestionContainer>
       <EventContainer>
         <EventBox>

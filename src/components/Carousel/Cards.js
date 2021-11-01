@@ -26,6 +26,7 @@ const Cards = ({
   options,
   slideNumber,
   currentSlide,
+  hold,
 }) => {
   const [imageReady, setImageReady] = useState(false);
   const [likeButtonClicked, setlikeButtonClicked] = useState(onUsersWishList);
@@ -47,6 +48,7 @@ const Cards = ({
   };
 
   useEffect(() => {
+    if (hold) return;
     if (
       currentSlide + 1 !== slideNumber &&
       type === 'carousel' &&
@@ -55,7 +57,7 @@ const Cards = ({
       return;
     imageLoader();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentSlide]);
+  }, [currentSlide, hold]);
 
   const hoverEffect = event => {
     event.target.classList.add('hover');

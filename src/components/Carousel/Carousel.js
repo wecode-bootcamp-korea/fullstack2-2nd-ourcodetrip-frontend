@@ -9,7 +9,12 @@ import { displayRatingToStars } from '../../utils/displayRatingToStars';
 import Cards from './Cards';
 import { defaultOptions } from './defaultOptions';
 
-const Carousel = ({ cardData = [], options = defaultOptions }) => {
+const Carousel = ({
+  cardData = [],
+  options = defaultOptions,
+  hold = false,
+  carouselRef = null,
+}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [maxSlide, setMaxSlide] = useState(0);
   const [lastSliding, setlastSliding] = useState(0);
@@ -55,7 +60,7 @@ const Carousel = ({ cardData = [], options = defaultOptions }) => {
   const { displayNumber, showController, autoSliding } = options;
 
   return (
-    <Wrapper>
+    <Wrapper ref={carouselRef}>
       <div className="sliderContainer">
         {!cardData.length ? (
           <CarouselSkeleton />
@@ -74,6 +79,7 @@ const Carousel = ({ cardData = [], options = defaultOptions }) => {
                   options={options}
                   displayRatingToStars={displayRatingToStars}
                   currentSlide={currentSlide}
+                  hold={hold}
                   {...data}
                 />
               );
@@ -116,6 +122,10 @@ const Carousel = ({ cardData = [], options = defaultOptions }) => {
   );
 };
 
+export default React.forwardRef((props, ref) => {
+  return <Carousel {...props} ref={ref} />;
+});
+
 const DotController = styled.ul`
   ${({ theme }) => theme.flexCenterContainer};
 `;
@@ -127,11 +137,10 @@ const Bullet = styled.li`
   cursor: pointer;
 `;
 
-export default Carousel;
-
 const Wrapper = styled.article`
   position: relative;
   ${({ theme }) => theme.Wrapper}
+  margin-bottom: 56px;
 
   & > .sliderContainer {
     padding: 10px 0;
