@@ -24,6 +24,7 @@ const fontSizes = {
   xl: calcRem(20),
   xxl: calcRem(22),
   xxxl: calcRem(24),
+  underTitleSize: calcRem(32),
   titleSize: calcRem(38),
   titleSize_2: calcRem(48),
 };
@@ -53,11 +54,6 @@ const interval = {
   xxl: calcRem(200),
 };
 
-const borders = {
-  basic: `1px solid #D6D6D6`,
-  basicRadius: `5px`,
-};
-
 const verticalInterval = {
   base: `${calcRem(10)} 0 ${calcRem(10)} 0`,
 };
@@ -78,9 +74,17 @@ const colors = {
   gray_3: '#f4f4f4',
   gray_4: '#f8f9fa',
   darkGray: '#343a40',
+  lightGray: '#E9ECEF',
   orange: '#FF9A00',
   primaryBlue: '#2B95EC',
   primaryBlue_2: '#51abf3',
+  hoverBlue: '#f5fbff',
+};
+
+const borders = {
+  basic: `1px solid #D6D6D6`,
+  basicRadius: `5px`,
+  light: `1px solid ${colors.lightGray}`,
 };
 
 const device = {
@@ -96,8 +100,17 @@ const shadow = {
     '0 0 0 1px rgba(0 0 0 / 5%), 0 2px 6px 0 rgb(0 0 0 / 5%), 0 4px 12px 0 rgb(0 0 0 / 5%)',
   hover:
     '0 0 0 1px rgb(0 0 0 / 15%), 0 2px 6px 0 rgb(0 0 0 / 5%), 0 8px 12px 0 rgb(0 0 0 / 20%)',
+  slider:
+    '0 0 0 1px rgb(0 0 0 / 10%), 0 2px 6px 0 rgb(0 0 0 / 10%), 0 8px 12px 0 rgb(0 0 0 / 10%)',
   heart: '0 0 2px rgb(0 0 0 / 30%)',
 };
+
+const FilterContainer = css`
+  margin: 0 auto;
+  padding: 24px 0 23px;
+  width: 216px;
+  border-bottom: ${borders.light};
+`;
 
 const buttons = {
   button_1: css`
@@ -116,6 +129,10 @@ const buttons = {
       font-size: ${fontSizes.base};
       font-weight: 500;
     }
+  `,
+  resetButton: css`
+    background: none;
+    border: none;
   `,
 };
 
@@ -139,6 +156,7 @@ const theme = {
   Wrapper,
   buttons,
   flexCenterContainer,
+  FilterContainer,
 };
 
 export default theme;

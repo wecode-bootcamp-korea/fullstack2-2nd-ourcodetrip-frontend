@@ -43,13 +43,13 @@ const Footer = () => {
         <UpperRight>
           {footerListdata.map((data, index, array) => {
             return (
-              <LinkBlock count={100 / array.length}>
+              <LinkBlock key={index} count={100 / array.length}>
                 <h4>{data.title}</h4>
                 <ul>
-                  {data.subCategory.map(category => {
+                  {data.subCategory.map((category, index) => {
                     return (
-                      <li>
-                        <Link>{category}</Link>
+                      <li key={index}>
+                        <Link to="/">{category}</Link>
                       </li>
                     );
                   })}

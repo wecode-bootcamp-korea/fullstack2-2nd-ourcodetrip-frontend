@@ -104,6 +104,22 @@ export const defaultOptions = generateOptions(
   {}
 );
 
+export const listCards = generateOptions(
+  1060,
+  4,
+  20,
+  167,
+  157,
+  true,
+  true,
+  true,
+  true,
+  'center',
+  false,
+  null,
+  {}
+);
+
 export const options2 = generateOptions(
   1060,
   2,

@@ -5,7 +5,7 @@ const tourTicketSlice = createSlice({
   initialState: {
     sortingCriteria: {
       categories: '',
-      sort: '',
+      sort: 'date:desc',
       reviewScore: '',
       price: '',
       availableDate: '',
@@ -16,8 +16,18 @@ const tourTicketSlice = createSlice({
     sortingAction: (state, action) => {
       state.sortingCriteria[action.payload.criteria] = action.payload.value;
     },
+    initialAction: state => {
+      state.sortingCriteria = {
+        categories: state.sortingCriteria.categories,
+        sort: 'date:desc',
+        reviewScore: '',
+        price: '',
+        availableDate: '',
+        confirm_type: '',
+      };
+    },
   },
 });
 
-export const { sortingAction } = tourTicketSlice.actions;
+export const { sortingAction, initialAction } = tourTicketSlice.actions;
 export default tourTicketSlice.reducer;

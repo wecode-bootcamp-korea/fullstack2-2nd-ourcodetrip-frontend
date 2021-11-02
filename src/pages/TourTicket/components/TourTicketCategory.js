@@ -13,10 +13,7 @@ const TourTicketCategory = ({ setCategories }) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const result = await ApiCall(
-        'http://localhost:3000/data/tourTicketCategories.json',
-        'GET'
-      );
+      const result = await ApiCall('/data/tourTicketCategories.json', 'GET');
       const categoryList = result.mainCategory;
       categoryList.forEach((category, categoryIdx) => {
         category.query = categoryQuery[categoryIdx].query;
@@ -92,11 +89,12 @@ const StyledTourTicketCategory = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 40px;
   width: 300px;
 `;
 
 const Title = styled.h2`
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   color: #343a40;
   font-size: 18px;
   font-weight: 500;
@@ -112,7 +110,7 @@ const CollapseContents = styled.li`
   font-size: 14px;
   line-height: 20px;
   padding: 10px;
-  /* color: tomato; */
+
   &:hover {
     background-color: #f1f3f5;
   }
