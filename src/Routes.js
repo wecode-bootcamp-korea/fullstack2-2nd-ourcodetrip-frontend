@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import GeneralSplash from './components/Splash/GeneralSplash';
+
 const Main = lazy(() => import('./pages/Main/Main'));
 const TopNav = lazy(() => import('./components/TopNav/TopNav'));
 const Footer = lazy(() => import('./components/Footer/Footer'));
@@ -30,13 +32,7 @@ const Cities = lazy(() => import('./pages/Cities/Cities'));
 const Routes = () => {
   return (
     <BrowserRouter>
-      <Suspense
-        fallback={
-          <div>
-            <h1>로딩중입니다</h1>
-          </div>
-        }
-      >
+      <Suspense fallback={<GeneralSplash />}>
         <TopNav />
         <Switch>
           <Route exact path="/" component={Main} />
