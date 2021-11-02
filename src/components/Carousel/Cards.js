@@ -66,7 +66,7 @@ const Cards = ({
   };
 
   const {
-    customCardStyle,
+    customCardStyle = null,
     imagePosition,
     showOptionalTickets,
     showContent,
@@ -141,7 +141,9 @@ const Cards = ({
                 <span className="offerPrice">
                   {new Intl.NumberFormat('ko-KR').format(offerPrice)}원
                 </span>
-                <span className="salesUnit">{' / ' + salesUnit}</span>
+                {salesUnit && (
+                  <span className="salesUnit">{' / ' + salesUnit}</span>
+                )}
                 {quickBooking && showOptionalTickets ? (
                   <span className="quickBooking">
                     <i>

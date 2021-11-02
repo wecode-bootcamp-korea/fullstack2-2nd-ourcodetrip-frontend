@@ -7,10 +7,10 @@ const Footer = lazy(() => import('./components/Footer/Footer'));
 const SignIn = lazy(() => import('./pages/User/SignIn'));
 const SignUp = lazy(() => import('./pages/User/SignUp'));
 const TourTicket = lazy(() => import('./pages/TourTicket/TourTicket'));
+const TourTicketList = lazy(() => import('./pages/TourTicket/TourTicketList'));
 const Review = lazy(() =>
   import('./components/Boards/ReviewBoard/ReviewBoard')
 );
-const List = lazy(() => import('./pages/TourTicket/List'));
 
 const Routes = () => {
   return (
@@ -27,9 +27,9 @@ const Routes = () => {
           <Route exact path="/" component={Main} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/review" component={Review} />
           <Route exact path="/tourticket" component={TourTicket} />
-          <Route path="/tourticket/list" component={List} />
+          <Route path="/tourticket/list" component={TourTicketList} />
+          <Route path="/review" component={Review} />
         </Switch>
         <Footer />
       </Suspense>
