@@ -21,9 +21,9 @@ const UpperNav = () => {
   return (
     <Upper>
       <UpperLeft>
-        <Link to="/">
+        <ToMainLink to="/">
           <Logo color={changingColor} />
-        </Link>
+        </ToMainLink>
         <SearchBar color={changingColor} />
         <SearchingGlass color={changingColor} />
       </UpperLeft>
@@ -32,12 +32,12 @@ const UpperNav = () => {
           <>
             {unsignedNavInfo.map(el => {
               return (
-                <li key={el.title}>
+                <UserMenuList key={el.title}>
                   <UpperRightLink to={el.link}>{el.title}</UpperRightLink>
-                </li>
+                </UserMenuList>
               );
             })}
-            <li>
+            <UserMenuList>
               <SignUpButton
                 color={changingColor}
                 to="/"
@@ -47,17 +47,17 @@ const UpperNav = () => {
               >
                 회원가입
               </SignUpButton>
-            </li>
+            </UserMenuList>
           </>
         ) : (
           <>
             {signedNavInfo.map(el => {
               return (
-                <li key={el.title}>
+                <UserMenuList key={el.title}>
                   <UpperRightLink page={pathname} to={el.link}>
                     {el.title}
                   </UpperRightLink>
-                </li>
+                </UserMenuList>
               );
             })}
             <UserInfoButton>
@@ -81,7 +81,7 @@ const Upper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1060px;
+  width: 1060px;
   height: 72px;
   margin: 0px auto;
 `;
@@ -89,9 +89,10 @@ const Upper = styled.div`
 const UpperLeft = styled.div`
   display: flex;
   align-items: center;
-  a {
-    padding: 12px 10px 10px 0;
-  }
+`;
+
+const ToMainLink = styled(Link)`
+  padding: 12px 10px 10px 0;
 `;
 
 const Logo = styled.img.attrs(props => ({
@@ -144,10 +145,11 @@ const UpperRight = styled.ul`
   display: flex;
   color: ${props => props.color || '#666d75'};
   font-size: 15px;
-  li {
-    height: 39px;
-    line-height: 39px;
-  }
+`;
+
+const UserMenuList = styled.li`
+  height: 39px;
+  line-height: 39px;
 `;
 
 const UpperRightLink = styled(Link)`

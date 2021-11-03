@@ -7,27 +7,27 @@ const UserDropdown = () => {
   const dispatch = useDispatch();
   return (
     <UserInfoSelector>
-      <span id="diamond"></span>
+      <Triangle></Triangle>
       <UserProfile>
         <Link to="/">
           <UserPhoto />
         </Link>
         <div>
-          <p>유저 아이디</p>
-          <Link to="/">프로필 관리</Link>
+          <UserId>유저 아이디</UserId>
+          <ManageProfile to="/">프로필 관리</ManageProfile>
         </div>
       </UserProfile>
       <UserMenu>
         <Link to="/">
-          <li>파트너 등록하기</li>
+          <MenuList>파트너 등록하기</MenuList>
         </Link>
-        <li
+        <MenuList
           onClick={() => {
             dispatch(logout());
           }}
         >
           로그아웃
-        </li>
+        </MenuList>
       </UserMenu>
     </UserInfoSelector>
   );
@@ -41,6 +41,7 @@ const UserPhoto = styled.img.attrs({
 })`
   width: 39px;
   height: 39px;
+  margin: 10px 15px 10px 10px;
   border: 2px solid #fff;
   border-radius: 18px;
   object-fit: contain;
@@ -59,25 +60,26 @@ const UserInfoSelector = styled.div`
     padding: 10px 0;
     border: 1px solid #ddd;
     background-color: #fff;
-    #diamond {
-      position: absolute;
-      top: -17px;
-      left: 170px;
-      width: 0;
-      height: 0;
-      border: 8px solid transparent;
-      border-bottom-color: #ddd;
-      &:after {
-        content: '';
-        position: absolute;
-        left: -7px;
-        top: -5px;
-        width: 0;
-        height: 0;
-        border: 7px solid transparent;
-        border-bottom-color: #fff;
-      }
-    }
+  }
+`;
+
+const Triangle = styled.span`
+  position: absolute;
+  top: -17px;
+  left: 168px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-bottom-color: #ddd;
+  &:after {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: -5px;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-bottom-color: #fff;
   }
 `;
 
@@ -86,29 +88,29 @@ const UserProfile = styled.div`
   align-items: center;
   padding: 0 10px;
   border-bottom: 1px solid #ddd;
-  img {
-    margin: 10px 15px 10px 10px;
-  }
-  p {
-    height: 23px;
-    font-size: 17px;
-    font-weight: 500;
-  }
-  a {
-    color: #4da7ef;
-    &:hover {
-      color: #aaa;
-    }
+`;
+
+const UserId = styled.p`
+  height: 23px;
+  font-size: 17px;
+  font-weight: 500;
+`;
+
+const ManageProfile = styled(Link)`
+  color: #4da7ef;
+  &:hover {
+    color: #aaa;
   }
 `;
 
 const UserMenu = styled.ul`
   padding-top: 10px;
-  li {
-    cursor: pointer;
-    padding: 0 10px;
-    &:hover {
-      background-color: #eee;
-    }
+`;
+
+const MenuList = styled.li`
+  cursor: pointer;
+  padding: 0 10px;
+  &:hover {
+    background-color: #eee;
   }
 `;
