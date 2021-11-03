@@ -6,7 +6,7 @@ import { IoLogoGooglePlaystore, IoLogoApple } from 'react-icons/io5';
 import { SiNaver, SiInstagram, SiYoutube } from 'react-icons/si';
 
 const Footer = () => {
-  const footerListdata = [
+  const footerListData = [
     { title: '소개', subCategory: ['회사소개', '채용', '공고'] },
     {
       title: '파트너',
@@ -23,34 +23,34 @@ const Footer = () => {
     <StyledFooter>
       <UpperFooter>
         <UpperLeft>
-          <h3>고객센터 운영 안내</h3>
+          <LeftTitle>고객센터 운영 안내</LeftTitle>
           <ul>
-            <li>
-              <b>평일(채팅/유선) :</b> 09:00-18:00 (12시~13시 제외)
-            </li>
-            <li>
-              <b>주말/공휴일 : </b>채팅 상담만 가능
-            </li>
-            <li>
-              ※ <b>항공권 환불/변경 :</b> 09:00-17:00까지 접수 가능
-            </li>
-            <li>
-              <b>유선상담 :</b> 1670-8208
-            </li>
+            <LeftList>
+              <Bold>평일(채팅/유선) :</Bold> 09:00-18:00 (12시~13시 제외)
+            </LeftList>
+            <LeftList>
+              <Bold>주말/공휴일 : </Bold>채팅 상담만 가능
+            </LeftList>
+            <LeftList>
+              ※ <Bold>항공권 환불/변경 :</Bold> 09:00-17:00까지 접수 가능
+            </LeftList>
+            <LeftList>
+              <Bold>유선상담 :</Bold> 1670-8208
+            </LeftList>
           </ul>
-          <button>1:1 채팅상담</button>
+          <ChatButton>1:1 채팅상담</ChatButton>
         </UpperLeft>
         <UpperRight>
-          {footerListdata.map((data, index, array) => {
+          {footerListData.map((data, index, array) => {
             return (
-              <LinkBlock key={index} count={100 / array.length}>
-                <h4>{data.title}</h4>
+              <LinkBlock count={100 / array.length} key={data.title}>
+                <ListTitle>{data.title}</ListTitle>
                 <ul>
                   {data.subCategory.map((category, index) => {
                     return (
-                      <li key={index}>
-                        <Link to="/">{category}</Link>
-                      </li>
+                      <RightList key={category}>
+                        <FooterListLink to="/">{category}</FooterListLink>
+                      </RightList>
                     );
                   })}
                 </ul>
@@ -63,13 +63,13 @@ const Footer = () => {
         <LinksIconsBlock>
           <PrivacyBox>
             <p>
-              <Link to="/">이용 약관</Link>
+              <FooterListLink to="/">이용 약관</FooterListLink>
             </p>
-            <b>
-              <Link to="/">개인정보 처리방침</Link>
-            </b>
+            <Bold>
+              <FooterListLink to="/">개인정보 처리방침</FooterListLink>
+            </Bold>
             <p>
-              <Link to="/">취소 및 환불 정책</Link>
+              <FooterListLink to="/">취소 및 환불 정책</FooterListLink>
             </p>
           </PrivacyBox>
           <IconBox>
@@ -81,6 +81,12 @@ const Footer = () => {
             <IoLogoGooglePlaystore />
           </IconBox>
         </LinksIconsBlock>
+        <CompanyInfo>
+          <a href="https://icons8.com/" target="_blank" rel="noreferrer">
+            icons8
+          </a>
+          의 아이콘을 사용하고 있습니다.
+        </CompanyInfo>
         <CompanyInfo>
           상호명 (주)아워코드트립 | 대표 아코트 | 개인정보보호책임자 아코트 |
           사업자등록번호 209- - - ---- 사업자정보확인 | 통신판매업신고번호 2019
@@ -108,44 +114,49 @@ const StyledFooter = styled.footer`
   border-top: 1px solid #e9ecef;
   color: #848c94;
 `;
+
 const UpperFooter = styled.div`
   ${({ theme }) => theme.Wrapper}
   display: flex;
   padding: 40px 0;
 `;
+
 const UpperLeft = styled.div`
   width: 50%;
-  h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: 700;
-  }
-  ul {
-    margin-bottom: 15px;
-  }
-  li {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 19px;
-  }
-  b {
-    color: #495056;
-    font-weight: 400;
-  }
-  button {
-    padding: 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    color: #495056;
-    background-color: #fff;
-    font-weight: 600;
-    transition: ease-out 0.15s;
-    &:hover {
-      border: 1.2px solid #ccc;
-      box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.15);
-    }
+`;
+
+const LeftTitle = styled.h3`
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 700;
+`;
+
+const LeftList = styled.li`
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 19px;
+`;
+
+const Bold = styled.b`
+  color: #495056;
+  font-weight: 400;
+`;
+
+const ChatButton = styled.button`
+  padding: 12px 15px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #495056;
+  background-color: #fff;
+  font-weight: 600;
+  transition: ease-out 0.15s;
+  &:hover {
+    border: 1.2px solid #ccc;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.15);
   }
 `;
+
 const UpperRight = styled.div`
   display: flex;
   justify-content: space-between;
@@ -153,28 +164,31 @@ const UpperRight = styled.div`
 `;
 const LinkBlock = styled.div`
   width: ${props => props.count}%;
+`;
 
-  h4 {
-    margin-bottom: 23px;
-    font-size: 15px;
-    font-weight: 700;
-  }
-  li {
-    margin-bottom: 17px;
-    font-size: 14px;
-    a {
-      position: relative;
-      left: -6px;
-      padding: 6px;
-      border-radius: 5px;
-      transition: ease 0.2s;
-      &:hover {
-        color: #51abf3;
-        background-color: #f5fbff;
-      }
-    }
+const ListTitle = styled.h4`
+  margin-bottom: 23px;
+  font-size: 15px;
+  font-weight: 700;
+`;
+
+const RightList = styled.li`
+  margin-bottom: 17px;
+  font-size: 14px;
+`;
+
+const FooterListLink = styled(Link)`
+  position: relative;
+  left: -6px;
+  padding: 6px;
+  border-radius: 5px;
+  transition: ease 0.2s;
+  &:hover {
+    color: #51abf3;
+    background-color: #f5fbff;
   }
 `;
+
 const LowerFooter = styled.div`
   ${({ theme }) => theme.Wrapper}
   padding-top:30px;
@@ -193,20 +207,6 @@ const PrivacyBox = styled.div`
   align-items: center;
   width: 33%;
   font-size: 14px;
-  b {
-    color: #495056;
-  }
-  a {
-    position: relative;
-    left: -6px;
-    padding: 6px;
-    border-radius: 5px;
-    transition: ease 0.2s;
-    &:hover {
-      color: #51abf3;
-      background-color: #f5fbff;
-    }
-  }
 `;
 const IconBox = styled.div`
   display: flex;
@@ -214,7 +214,7 @@ const IconBox = styled.div`
   width: 28%;
   color: #adb5bd;
   font-size: 20px;
-  svg:hover {
+  *:hover {
     color: #ced4da;
     cursor: pointer;
   }
