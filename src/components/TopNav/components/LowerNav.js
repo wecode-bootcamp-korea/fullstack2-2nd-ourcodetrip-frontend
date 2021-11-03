@@ -15,7 +15,7 @@ const LowerNav = () => {
         return (
           <LowerNavLink color={changingColor} to={el.link} key={el.title}>
             {pathname === '/' && <NavIcon icon={el.icon} />}
-            <span>{el.title}</span>
+            <ServiceTitle>{el.title}</ServiceTitle>
           </LowerNavLink>
         );
       })}
@@ -27,7 +27,7 @@ const LowerNav = () => {
             to={promotion.link}
             key={promotion.title}
           >
-            <span>{promotion.title}</span>
+            <ServiceTitle>{promotion.title}</ServiceTitle>
           </LowerNavLink>
         );
       })}
@@ -40,7 +40,7 @@ export default LowerNav;
 const Lower = styled.div`
   display: flex;
   align-items: center;
-  max-width: 1060px;
+  width: 1060px;
   margin: 0 auto;
   color: ${props => (props.color ? '#fff' : '#495056')};
 `;
@@ -56,13 +56,13 @@ const LowerNavLink = styled(Link)`
     margin-left: -5px;
   }
   &:hover {
-    /* border-bottom: 3px solid #79bef5; */
     border-bottom: 3px solid ${props => (props.color ? '#fff' : '#79bef5')};
   }
-  span {
-    height: 50px;
-    line-height: 50px;
-  }
+`;
+
+const ServiceTitle = styled.span`
+  height: 50px;
+  line-height: 50px;
 `;
 
 const Separator = styled.span`
