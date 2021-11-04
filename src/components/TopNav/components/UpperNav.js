@@ -13,7 +13,7 @@ import { useUser } from '../../../hooks/userHook';
 
 const UpperNav = () => {
   const [isUserInfoClicked, setIsUserInfoClicked] = useState(false);
-  const { isLogin, login } = useUser();
+  const { isLogin } = useUser();
   const { pathname } = useLocation();
   const changingColor = initialNavColor[pathname];
   return (
@@ -22,9 +22,19 @@ const UpperNav = () => {
         <ToMainLink to="/">
           <Logo color={changingColor} />
         </ToMainLink>
-        <SearchBar color={changingColor} />
-        <SearchingGlass color={changingColor} />
+        {pathname !== '/tourticket' && (
+          <>
+            <SearchBar color={changingColor} />
+            <SearchingGlass color={changingColor} />
+          </>
+        )}
       </UpperLeft>
+      {pathname === '/tourticket' && (
+        <>
+          <TourSearchingGlass />
+          <TourSearchingBar />
+        </>
+      )}
       <UpperRight color={changingColor}>
         {!isLogin ? (
           <>
@@ -36,7 +46,7 @@ const UpperNav = () => {
               );
             })}
             <UserMenuList>
-              <SignUpButton color={changingColor} to="/" onClick={login}>
+              <SignUpButton color={changingColor} to="/signup">
                 회원가입
               </SignUpButton>
             </UserMenuList>
@@ -70,6 +80,7 @@ const UpperNav = () => {
 export default UpperNav;
 
 const Upper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -192,5 +203,50 @@ const UserPhoto = styled.img.attrs({
   cursor: pointer;
   &:hover {
     border: 2px solid #bbb;
+  }
+`;
+
+const TourSearchingBar = styled.input.attrs({
+  type: 'text',
+  placeholder: '도시나 상품을 검색해보세요',
+  maxLength: '13',
+})`
+  position: absolute;
+  left: 28.5%;
+  top: 265%;
+  width: 414px;
+  height: 56px;
+  margin-left: 20px;
+  padding: 10px 40px 10px;
+  border: 1px solid rgba(230, 230, 230, 0.8);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: ease-out 0.15s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  &:focus {
+    background-color: #fff;
+    &::placeholder {
+      color: #fff;
+    }
+  }
+  &::placeholder {
+    margin: 0 auto;
+    color: #efefef;
+    font-size: 16.2px;
+    text-align: center;
+  }
+`;
+
+const TourSearchingGlass = styled(AiOutlineSearch)`
+  position: absolute;
+  top: 285.5%;
+  left: 38%;
+  color: #eaeaea;
+  font-size: 30px;
+  &:focus {
+    color: #888;
   }
 `;

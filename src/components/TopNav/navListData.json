@@ -1,10 +1,10 @@
 {
   "unsignedNavInfo": [
     { "title": "파트너 등록하기", "link": "/" },
-    { "title": "로그인", "link": "/" }
+    { "title": "로그인", "link": "/signin" }
   ],
   "signedNavInfo": [
-    { "title": "위시리스트", "link": "/" },
+    { "title": "위시리스트", "link": "/wishlists" },
     { "title": "내 여행", "link": "/" },
     { "title": "메시지", "link": "/" },
     { "title": "알림", "link": "/" }
