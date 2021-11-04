@@ -10,7 +10,6 @@ import { ApiCall } from '../../utils/ApiCall';
 const TourTicketList = () => {
   const [listData, setListData] = useState([]);
   const [priceRange, setPriceRange] = useState([]);
-  const [categories, setCategories] = useState('');
   const [query, setQuery] = useState('');
   const { sortingCriteria } = tourTicketHook();
 
@@ -50,10 +49,7 @@ const TourTicketList = () => {
       <PageHeader>서울의 투어・티켓</PageHeader>
       <ListContainer>
         <FilterContainer>
-          <TourTicketCategory
-            categories={categories}
-            setCategories={setCategories}
-          />
+          <TourTicketCategory />
           <ListFilter priceRange={priceRange} setQuery={setQuery} />
         </FilterContainer>
         <main>

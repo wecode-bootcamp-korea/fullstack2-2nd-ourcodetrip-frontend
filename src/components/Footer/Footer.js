@@ -46,7 +46,7 @@ const Footer = () => {
               <LinkBlock count={100 / array.length} key={data.title}>
                 <ListTitle>{data.title}</ListTitle>
                 <ul>
-                  {data.subCategory.map((category, index) => {
+                  {data.subCategory.map(category => {
                     return (
                       <RightList key={category}>
                         <FooterListLink to="/">{category}</FooterListLink>

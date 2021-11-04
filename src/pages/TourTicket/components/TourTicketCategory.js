@@ -5,7 +5,7 @@ import { ApiCall } from '../../../utils/ApiCall';
 import { categoryQuery } from '../../../utils/categoryLinks';
 import tourTicketHook from '../../../hooks/tourTicketHook';
 
-const TourTicketCategory = ({ setCategories }) => {
+const TourTicketCategory = () => {
   const { setTourTicketSorting } = tourTicketHook();
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
@@ -13,15 +13,10 @@ const TourTicketCategory = ({ setCategories }) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const result = await ApiCall('/data/tourTicketCategories.json', 'GET');
-      const categoryList = result.mainCategory;
+      const result = await ApiCall('/categories/main&sub', 'GET');
+      const categoryList = await result.data;
       categoryList.forEach((category, categoryIdx) => {
-        category.query = categoryQuery[categoryIdx].query;
-        category.subCategory.forEach((eachSubCategory, subCategoryIdx) => {
-          eachSubCategory.query =
-            categoryQuery[categoryIdx].subCategory[subCategoryIdx].query;
-        });
-        category.subCategory.unshift({
+        category.SubCategory.unshift({
           id: 0,
           name: '전체보기',
           query: categoryQuery[categoryIdx].query,
@@ -53,11 +48,10 @@ const TourTicketCategory = ({ setCategories }) => {
                 title={data.name}
                 collapseWidth={'250px'}
                 icon={data.id}
-                setCategories={setCategories}
               >
-                {data.subCategory && (
+                {data.SubCategory && (
                   <ul>
-                    {data.subCategory.map(el => {
+                    {data.SubCategory.map(el => {
                       return (
                         <CollapseContents
                           key={el.id}

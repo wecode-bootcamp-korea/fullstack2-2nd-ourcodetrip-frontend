@@ -1,14 +1,9 @@
 import React, { useState, useRef, useCallback } from 'react';
 import styled, { css } from 'styled-components';
+import tourTicketHook from '../../hooks/tourTicketHook';
 
-const Collapse = ({
-  children,
-  title,
-  collapseWidth,
-  icon,
-  id,
-  setCategories,
-}) => {
+const Collapse = ({ children, title, collapseWidth, icon, id }) => {
+  const { setCategoryInit } = tourTicketHook();
   const [isOpen, setIsOpen] = useState(false);
   const parentRef = useRef(null);
   const childRef = useRef(null);
@@ -33,9 +28,8 @@ const Collapse = ({
           </>
         ) : (
           <GoToEntire
-            to="/tourticket/list"
             onClick={() => {
-              setCategories('');
+              setCategoryInit();
             }}
           >
             <CategoryIcon icon={icon} />
