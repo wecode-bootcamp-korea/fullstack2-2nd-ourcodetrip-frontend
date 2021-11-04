@@ -1,45 +1,54 @@
 [
   {
+    "imgCardBg": "https://i.imgur.com/VjF3kPw.jpg",
     "imgUrl": "https://i.imgur.com/YxwmBx9.jpg",
     "region": "서울",
     "id": 1
   },
   {
+    "imgCardBg": "https://i.imgur.com/jfcT6Dx.jpg",
     "imgUrl": "https://i.imgur.com/Sx7zUpe.jpg",
     "region": "제주도",
     "id": 2
   },
   {
+    "imgCardBg": "https://i.imgur.com/p61l4fc.jpg",
     "imgUrl": "https://i.imgur.com/rug4Daj.jpg",
     "region": "부산",
     "id": 3
   },
   {
+    "imgCardBg": "https://i.imgur.com/ZrnR1Y7.jpg",
     "imgUrl": "https://i.imgur.com/67YWFLN.jpg",
     "region": "마산",
     "id": 4
   },
   {
+    "imgCardBg": "https://i.imgur.com/2TAfD2i.jpg",
     "imgUrl": "https://i.imgur.com/vXcgZFS.jpg",
     "region": "경주",
     "id": 5
   },
   {
+    "imgCardBg": "https://i.imgur.com/MUfVAxj.jpg",
     "imgUrl": "https://i.imgur.com/gV6tWCV.jpg",
-    "region": "창원",
+    "region": "수원",
     "id": 6
   },
   {
+    "imgCardBg": "",
     "imgUrl": "https://i.imgur.com/7zsrg7U.jpg",
-    "region": "수원",
+    "region": "창원",
     "id": 7
   },
   {
+    "imgCardBg": "",
     "imgUrl": "https://i.imgur.com/7BhpeVt.jpg",
     "region": "광명",
     "id": 8
   },
   {
+    "imgCardBg": "",
     "imgUrl": "https://i.imgur.com/klsmuhO.jpg",
     "region": "울산",
     "id": 9
