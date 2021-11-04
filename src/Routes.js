@@ -11,6 +11,7 @@ const TourTicketList = lazy(() => import('./pages/TourTicket/TourTicketList'));
 const Review = lazy(() =>
   import('./components/Boards/ReviewBoard/ReviewBoard')
 );
+const NotFound = lazy(() => import('./components/NotFound/NotFound'));
 const WishList = lazy(() => import('./pages/WishList/WishList'));
 
 const Routes = () => {
@@ -26,12 +27,13 @@ const Routes = () => {
         <TopNav />
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/signup" component={SignUp} />
           <Route exact path="/tourticket" component={TourTicket} />
           <Route path="/tourticket/list" component={TourTicketList} />
-          <Route path="/review" component={Review} />
-          <Route path="/wishlist" component={WishList} />
+          <Route exact path="/review" component={Review} />
+          <Route exact path="/wishlists" component={WishList} />
+          <Route component={NotFound} />
         </Switch>
         <Footer />
       </Suspense>
