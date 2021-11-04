@@ -19,7 +19,7 @@ const tourTicketSlice = createSlice({
     initialAction: state => {
       state.sortingCriteria = {
         categories: state.sortingCriteria.categories,
-        sort: 'date:desc',
+        sort: state.sortingCriteria.sort,
         reviewScore: '',
         price: '',
         availableDate: '',
