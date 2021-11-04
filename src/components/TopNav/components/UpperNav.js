@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -10,12 +9,11 @@ import {
   signedNavInfo,
   initialNavColor,
 } from '../navListData.json';
-import { login } from '../../../store/userSlice';
+import { useUser } from '../../../hooks/userHook';
 
 const UpperNav = () => {
   const [isUserInfoClicked, setIsUserInfoClicked] = useState(false);
-  const state = useSelector(state => state.userReducer);
-  const dispatch = useDispatch();
+  const { isLogin, login } = useUser();
   const { pathname } = useLocation();
   const changingColor = initialNavColor[pathname];
   return (
@@ -28,7 +26,7 @@ const UpperNav = () => {
         <SearchingGlass color={changingColor} />
       </UpperLeft>
       <UpperRight color={changingColor}>
-        {!state.isLogin ? (
+        {!isLogin ? (
           <>
             {unsignedNavInfo.map(el => {
               return (
@@ -38,13 +36,7 @@ const UpperNav = () => {
               );
             })}
             <UserMenuList>
-              <SignUpButton
-                color={changingColor}
-                to="/"
-                onClick={() => {
-                  dispatch(login());
-                }}
-              >
+              <SignUpButton color={changingColor} to="/" onClick={login}>
                 회원가입
               </SignUpButton>
             </UserMenuList>
@@ -189,7 +181,7 @@ const UserInfoButton = styled.li`
 `;
 
 const UserPhoto = styled.img.attrs({
-  src: `${process.env.PUBLIC_URL}/images/logo.png`,
+  src: `${process.env.PUBLIC_URL}/images/defaultUserIcon.png`,
   alt: 'user profile',
 })`
   width: 39px;
