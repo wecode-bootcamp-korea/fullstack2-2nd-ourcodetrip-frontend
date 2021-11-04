@@ -1,0 +1,222 @@
+{
+  "서울": [
+    {
+      "id": 1,
+      "imgUrl": "https://images.unsplash.com/photo-1592495213732-684c751b4c1f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzh8fHRyaXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 1",
+      "rating": 0,
+      "totalReviews": 0,
+      "price": 40000,
+      "offerPrice": 29000,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": true
+    },
+    {
+      "id": 2,
+      "imgUrl": "https://images.unsplash.com/photo-1532339142463-fd0a8979791a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 2",
+      "rating": 2.4,
+      "totalReviews": 81,
+      "price": 33000,
+      "offerPrice": 25500,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": false
+    },
+    {
+      "id": 3,
+      "imgUrl": "https://images.unsplash.com/photo-1529171696861-bac785a44828?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 3",
+      "rating": 3.9,
+      "totalReviews": 15,
+      "price": 30000,
+      "offerPrice": 19900,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": false,
+      "quickBooking": true
+    },
+    {
+      "id": 4,
+      "imgUrl": "https://images.unsplash.com/photo-1590598016454-45b7e0ac125c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHRyaXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 4",
+      "rating": 3.3,
+      "totalReviews": 7,
+      "price": 170000,
+      "offerPrice": 127000,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": true
+    },
+    {
+      "id": 5,
+      "imgUrl": "https://images.unsplash.com/photo-1584064554482-49774e585e30?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHRyaXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 5",
+      "rating": 4.2,
+      "totalReviews": 2,
+      "price": 54000,
+      "offerPrice": 39500,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": true
+    },
+    {
+      "id": 6,
+      "imgUrl": "https://images.unsplash.com/photo-1571569481471-1753fb013630?ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODF8fHRyaXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 6",
+      "rating": 2.4,
+      "totalReviews": 81,
+      "price": 50000,
+      "offerPrice": 38000,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": false
+    }
+  ],
+  "제주도": [
+    {
+      "id": 7,
+      "imgUrl": "https://images.unsplash.com/photo-1523975864490-174dd4d9a41e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8am91cm5leXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 7",
+      "rating": 3.9,
+      "totalReviews": 15,
+      "price": 33000,
+      "offerPrice": 19000,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": false,
+      "quickBooking": true
+    },
+    {
+      "id": 8,
+      "imgUrl": "https://images.unsplash.com/photo-1502791451862-7bd8c1df43a7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fHRyYXZlbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 8",
+      "rating": 3.3,
+      "totalReviews": 7,
+      "price": 60000,
+      "offerPrice": 38900,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": true
+    },
+    {
+      "id": 9,
+      "imgUrl": "https://images.unsplash.com/photo-1528543606781-2f6e6857f318?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTB8fHRyYXZlbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 9",
+      "rating": 3.9,
+      "totalReviews": 15,
+      "price": 60000,
+      "offerPrice": 37000,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": false,
+      "quickBooking": true
+    }
+  ],
+  "부산": [
+    {
+      "id": 10,
+      "imgUrl": "https://images.unsplash.com/photo-1497262693247-aa258f96c4f5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDR8fHRyYXZlbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 10",
+      "rating": 3.3,
+      "totalReviews": 7,
+      "price": 27000,
+      "offerPrice": 24300,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": true
+    },
+    {
+      "id": 11,
+      "imgUrl": "https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTd8fHRyYXZlbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 이 카드가 마지막 카드입니다",
+      "rating": 3.3,
+      "totalReviews": 7,
+      "price": 110000,
+      "offerPrice": 76000,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": true
+    },
+    {
+      "id": 12,
+      "imgUrl": "https://images.unsplash.com/photo-1592495213732-684c751b4c1f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzh8fHRyaXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 1",
+      "rating": 0,
+      "totalReviews": 0,
+      "price": 50000,
+      "offerPrice": 45000,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": true
+    }
+  ],
+  "뉴욕": [
+    {
+      "id": 13,
+      "imgUrl": "https://images.unsplash.com/photo-1532339142463-fd0a8979791a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 2",
+      "rating": 2.4,
+      "totalReviews": 81,
+      "price": 0,
+      "offerPrice": 80000,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": false
+    },
+    {
+      "id": 14,
+      "imgUrl": "https://images.unsplash.com/photo-1529171696861-bac785a44828?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 3",
+      "rating": 3.9,
+      "totalReviews": 15,
+      "price": 42000,
+      "offerPrice": 37800,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": false,
+      "quickBooking": true
+    }
+  ],
+  "뉴질랜드": [
+    {
+      "id": 15,
+      "imgUrl": "https://images.unsplash.com/photo-1590598016454-45b7e0ac125c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHRyaXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "category": "액티비티",
+      "region": "서울",
+      "title": "[중문] 그랑블루요트 선셋 요트투어 (낚시체험) 4",
+      "rating": 3.3,
+      "totalReviews": 7,
+      "price": 65000,
+      "offerPrice": 50000,
+      "onUsersWishList": true,
+      "guaranteedLowestPrice": true,
+      "quickBooking": true
+    }
+  ]
+}

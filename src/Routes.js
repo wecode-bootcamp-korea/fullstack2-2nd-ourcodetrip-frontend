@@ -11,6 +11,7 @@ const TourTicketList = lazy(() => import('./pages/TourTicket/TourTicketList'));
 const Review = lazy(() =>
   import('./components/Boards/ReviewBoard/ReviewBoard')
 );
+const WishList = lazy(() => import('./pages/WishList/WishList'));
 
 const Routes = () => {
   return (
@@ -30,6 +31,7 @@ const Routes = () => {
           <Route exact path="/tourticket" component={TourTicket} />
           <Route path="/tourticket/list" component={TourTicketList} />
           <Route path="/review" component={Review} />
+          <Route path="/wishlist" component={WishList} />
         </Switch>
         <Footer />
       </Suspense>

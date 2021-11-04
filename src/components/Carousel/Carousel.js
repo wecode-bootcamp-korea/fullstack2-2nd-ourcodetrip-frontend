@@ -24,6 +24,7 @@ const Carousel = ({ cardData = [], options = defaultOptions }) => {
             (cardData.length % displayNumber) * (cardWidth + cardSpacing) +
             cardSpacing
     );
+    setCurrentSlide(0);
   }, [cardData, options]);
 
   const nextSlide = useCallback(() => {
