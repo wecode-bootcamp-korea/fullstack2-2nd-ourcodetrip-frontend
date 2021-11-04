@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../../store/userSlice';
+import { useUser } from '../../../hooks/userHook';
 
 const UserDropdown = () => {
-  const dispatch = useDispatch();
+  const { logout } = useUser();
   return (
     <UserInfoSelector>
       <Triangle></Triangle>
@@ -21,13 +20,7 @@ const UserDropdown = () => {
         <Link to="/">
           <MenuList>파트너 등록하기</MenuList>
         </Link>
-        <MenuList
-          onClick={() => {
-            dispatch(logout());
-          }}
-        >
-          로그아웃
-        </MenuList>
+        <MenuList onClick={logout}>로그아웃</MenuList>
       </UserMenu>
     </UserInfoSelector>
   );
@@ -36,7 +29,7 @@ const UserDropdown = () => {
 export default UserDropdown;
 
 const UserPhoto = styled.img.attrs({
-  src: `${process.env.PUBLIC_URL}/images/logo.png`,
+  src: `${process.env.PUBLIC_URL}/images/defaultUserIcon.png`,
   alt: 'user profile',
 })`
   width: 39px;
@@ -108,6 +101,8 @@ const UserMenu = styled.ul`
 `;
 
 const MenuList = styled.li`
+  height: 39px;
+  line-height: 39px;
   cursor: pointer;
   padding: 0 10px;
   &:hover {
