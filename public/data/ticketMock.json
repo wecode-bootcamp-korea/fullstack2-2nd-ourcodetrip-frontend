@@ -1,0 +1,55 @@
+{
+  "message": "CREATED",
+  "data": {
+    "id": 11,
+    "name": "[바로사용] 롯데월드 서울 스카이",
+    "countryId": 82,
+    "country": "대한민국",
+    "cityId": 1,
+    "city": "서울",
+    "option": [
+      {
+        "id": 1,
+        "name": "평일) 빅5 ",
+        "price": 20000,
+        "expiration": "~12/31"
+      },
+      {
+        "id": 2,
+        "name": "평일) 자유이용권",
+        "price": 30000,
+        "expiration": "~12/31"
+      },
+      {
+        "id": 3,
+        "name": "주말) 자유이용권",
+        "price": 40000,
+        "expiration": "~12/31"
+      }
+    ],
+    "discount": 0.5,
+    "originPrice": "40000",
+    "partner": "아코트 은정가이드",
+    "partnerId": 20,
+    "partnerDescription": "위코드 출신 코딩 가이드",
+    "defaultPrice": "20000",
+    "infoImage": [
+      {
+        "id": 1,
+        "imageUrl": "이미지"
+      },
+      {
+        "id": 2,
+        "imageUrl": "이미지"
+      },
+      {
+        "id": 3,
+        "imageUrl": "이미지"
+      },
+      {
+        "id": 4,
+        "imageUrl": "이미지"
+      }
+    ]
+  }
+}
