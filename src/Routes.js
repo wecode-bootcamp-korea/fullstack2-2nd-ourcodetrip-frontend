@@ -8,6 +8,9 @@ const SignIn = lazy(() => import('./pages/User/SignIn'));
 const SignUp = lazy(() => import('./pages/User/SignUp'));
 const TourTicket = lazy(() => import('./pages/TourTicket/TourTicket'));
 const TourTicketList = lazy(() => import('./pages/TourTicket/TourTicketList'));
+const TourTicketDetail = lazy(() =>
+  import('./pages/TourTicket/TourTicketDetail/TourTicketDetail')
+);
 const Review = lazy(() =>
   import('./components/Boards/ReviewBoard/ReviewBoard')
 );
@@ -40,6 +43,7 @@ const Routes = () => {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/tourticket" component={TourTicket} />
           <Route path="/tourticket/list" component={TourTicketList} />
+          <Route path="/tourticket/:id" component={TourTicketDetail} />
           <Route exact path="/review" component={Review} />
           <Route exact path="/wishlists" component={WishList} />
           <Route exact path="/profile" component={ManagingProfile} />

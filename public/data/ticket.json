@@ -1,0 +1,60 @@
+{
+  "message": "SUCCESS",
+  "data": {
+    "productId": 7,
+    "standardPrice": 29000,
+    "discountRate": 0.5,
+    "expireDate": "2022-10-31T15:00:00.000Z",
+    "TicketOption": [
+      {
+        "id": 1,
+        "name": "[1인] 종일 종합이용권",
+        "price": 37000,
+        "expireDate": "2022-10-31T15:00:00.000Z",
+        "discountRate": 0.1
+      },
+      {
+        "id": 2,
+        "name": "[1인] After4 종합이용권",
+        "price": 29000,
+        "expireDate": "2022-10-31T15:00:00.000Z",
+        "discountRate": 0.1
+      },
+      {
+        "id": 3,
+        "name": "[패밀리] 종일 종합이용권",
+        "price": 63000,
+        "expireDate": "2022-10-31T15:00:00.000Z",
+        "discountRate": 0.1
+      }
+    ],
+    "Product": {
+      "name": "위코드월드 자유이용권(1인/패밀리)",
+      "ProductType": {
+        "name": "티켓"
+      },
+      "ProductImage": [
+        {
+          "imageUrl": "https://d2ur7st6jjikze.cloudfront.net/offer_photos/102176/564637_large_1620705814.jpg?1620705814"
+        }
+      ],
+      "ProductOption": [
+        {
+          "OptionList": {
+            "name": "즉시확정"
+          }
+        }
+      ]
+    },
+    "City": {
+      "name": "서울",
+      "Country": {
+        "name": "대한민국"
+      }
+    },
+    "Partner": {
+      "name": "예스프링투어",
+      "introduce": "다 귀찮은사람 \"여기여기\" 붙어라"
+    }
+  }
+}
