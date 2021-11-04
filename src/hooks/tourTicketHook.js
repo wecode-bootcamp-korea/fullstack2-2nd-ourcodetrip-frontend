@@ -1,6 +1,10 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { sortingAction, initialAction } from '../store/tourTicketSlice';
+import {
+  sortingAction,
+  initialAction,
+  initialCategoryAction,
+} from '../store/tourTicketSlice';
 
 const useTourTicket = () => {
   const { sortingCriteria } = useSelector(state => state.tourTicketReducer);
@@ -17,7 +21,16 @@ const useTourTicket = () => {
     dispatch(initialAction());
   }, [dispatch]);
 
-  return { sortingCriteria, setTourTicketSorting, setInitialAction };
+  const setCategoryInit = useCallback(() => {
+    dispatch(initialCategoryAction());
+  }, [dispatch]);
+
+  return {
+    sortingCriteria,
+    setTourTicketSorting,
+    setInitialAction,
+    setCategoryInit,
+  };
 };
 
 export default useTourTicket;
