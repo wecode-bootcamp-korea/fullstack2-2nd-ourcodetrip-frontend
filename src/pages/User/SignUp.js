@@ -24,7 +24,6 @@ const SignUp = () => {
             return res.json();
           })
           .then(info => {
-            console.log(info);
             if (info.message === 'success') {
               login({ userinfo: info.data.name });
               alert(`${info.data.name}님 환영합니다.`);

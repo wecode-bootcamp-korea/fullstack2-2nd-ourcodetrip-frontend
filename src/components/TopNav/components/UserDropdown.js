@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useUser } from '../../../hooks/userHook';
 
 const UserDropdown = () => {
-  const { logout } = useUser();
+  const { logout, userInfo } = useUser();
   return (
     <UserInfoSelector>
       <Triangle></Triangle>
@@ -12,8 +12,8 @@ const UserDropdown = () => {
           <UserPhoto />
         </Link>
         <div>
-          <UserId>유저 아이디</UserId>
-          <ManageProfile to="/">프로필 관리</ManageProfile>
+          <UserId>{userInfo.name}</UserId>
+          <ManageProfile to="/profile">프로필 관리</ManageProfile>
         </div>
       </UserProfile>
       <UserMenu>

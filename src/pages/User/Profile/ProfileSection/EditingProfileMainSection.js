@@ -43,7 +43,7 @@ const EditingProfileMainSection = props => {
       .then(res => res.json())
       .then(res => {
         console.log(res);
-        editUserInfo({ name: name });
+        editUserInfo({ name: res.data.name });
       });
   };
 

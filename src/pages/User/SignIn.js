@@ -36,7 +36,7 @@ const SignIn = () => {
               .then(info => {
                 console.log(info);
                 if (info.message === 'success') {
-                  login({ userinfo: info.data.name });
+                  login({ name: info.data.name });
                   alert(`${info.data.name}님 환영합니다.`);
                 } else {
                   alert('다시 시도해주세요');
