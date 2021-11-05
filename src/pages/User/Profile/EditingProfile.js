@@ -40,7 +40,7 @@ const EditingProfile = () => {
   return (
     <ProfileWrapper>
       <Header>
-        <h1>프로필 관리</h1>
+        <h1>프로필 편집</h1>
       </Header>
       <Main>
         <SideProfileSection userData={userData} />

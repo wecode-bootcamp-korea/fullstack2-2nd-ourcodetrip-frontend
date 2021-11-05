@@ -27,7 +27,15 @@ const AuthenticationPage = () => {
             return res.json();
           })
           .then(data => {
-            console.log(data);
+            console.log(data.message);
+            if (data.message === ('success' || 'updated')) {
+              history.push('/edit');
+            } else {
+              alert(
+                '카카오 연결이 해제되어 있습니다. 프로필 관리에서 연결을 시도해주세요 '
+              );
+              history.push('/profile');
+            }
           });
       },
       fail: err => {
@@ -50,7 +58,6 @@ const AuthenticationPage = () => {
         <KakaoLoginButton
           onClick={() => {
             KakaoLoginHandler();
-            history.push('/edit');
           }}
         >
           <img
@@ -68,7 +75,7 @@ const AuthenticationPage = () => {
             placeholder="비밀번호를 입력해주세요"
             onChange={handleInputPassword}
           />
-          {password && alert('왜 그러세요..')}
+          {password && alert('서비스 구현중입니다. 접근하지 말아주세요.')}
           <button>비밀번호 인증</button>
         </PasswordContainer>
       </AuthenticationPageForm>

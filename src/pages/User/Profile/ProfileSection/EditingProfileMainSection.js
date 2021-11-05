@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import Switch from '@mui/material/Switch';
+import { useUser } from '../../../../hooks/userHook';
 
 const EditingProfileMainSection = props => {
   const history = useHistory();
+  const { editUserInfo } = useUser();
   const { name, email, phoneNumber } = props.userData;
   const {
     checkedEmail,
@@ -39,7 +41,10 @@ const EditingProfileMainSection = props => {
       }),
     })
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => {
+        console.log(res);
+        editUserInfo({ name: name });
+      });
   };
 
   const KakaoLoginHandler = () => {
@@ -92,7 +97,7 @@ const EditingProfileMainSection = props => {
         </Email>
         <PhoneNumber>
           <div>연락처</div>
-          <span>{phoneNumber}</span>
+          <span>010-0123-9876</span>
         </PhoneNumber>
         <LinkedSns>
           <div>SNS 연동</div>

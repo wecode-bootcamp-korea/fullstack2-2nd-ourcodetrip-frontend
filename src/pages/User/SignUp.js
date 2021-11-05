@@ -2,9 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import { useUser } from '../../hooks/userHook';
 
 const SignUp = () => {
   const history = useHistory();
+  const { login } = useUser();
+
   const KakaoLoginHandler = () => {
     window.Kakao.Auth.login({
       scope: 'profile_nickname,profile_image,account_email',
@@ -20,10 +23,11 @@ const SignUp = () => {
           .then(res => {
             return res.json();
           })
-          .then(data => {
-            localStorage.setItem('token', data.data);
-            if (data.message === 'created') {
-              alert('환영합니다');
+          .then(info => {
+            console.log(info);
+            if (info.message === 'success') {
+              login({ userinfo: info.data.name });
+              alert(`${info.data.name}님 환영합니다.`);
             } else {
               alert('다시 시도해주세요');
             }
