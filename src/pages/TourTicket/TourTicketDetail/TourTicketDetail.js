@@ -14,6 +14,7 @@ import ScrollTab from './components/ScrollTab';
 import ChoiceTicketBox from './components/ChoiceTicketBox';
 import DatePickerBox from './components/DatePickerBox';
 import ReviewBoard from '../../../components/Boards/ReviewBoard/ReviewBoard';
+import { displayRatingToStars } from '../../../utils/displayRatingToStars';
 
 const TourTicketDetail = () => {
   const [wishButton, setWishButton] = useState(false);
@@ -112,7 +113,7 @@ const TourTicketDetail = () => {
                 reviewRef.current.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              <span>★★★★★</span>
+              <span>{displayRatingToStars(4.7)}</span>
               <span>4.7</span>
               {` `}
               <span>{`(39)`}</span>

@@ -103,7 +103,6 @@ export default FloatingBox;
 const Floating = styled.div`
   position: sticky;
   top: 50px;
-  right: 180px;
   padding-top: 20px;
   width: 320px;
   height: 260px;
