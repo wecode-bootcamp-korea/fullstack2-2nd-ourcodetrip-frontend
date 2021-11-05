@@ -1,18 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const MainCategories = ({ mainCategories }) => {
   return (
     <MainCategoryContainer>
-      <Header>카테고리</Header>
-      <ButtonContainer>
-        {mainCategories.map((ele, idx) => (
-          <Button key={idx}>
-            <Icons categoryId={ele.categoryId} />
-            {ele.name}
-          </Button>
-        ))}
-      </ButtonContainer>
+      <Link to="/tourticket/list">
+        <Header>카테고리</Header>
+        <ButtonContainer>
+          {mainCategories.map((ele, idx) => (
+            <Button key={idx}>
+              <Icons categoryId={ele.categoryId} />
+              {ele.name}
+            </Button>
+          ))}
+        </ButtonContainer>
+      </Link>
     </MainCategoryContainer>
   );
 };

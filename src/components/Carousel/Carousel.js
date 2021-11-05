@@ -14,6 +14,7 @@ const Carousel = ({
   options = defaultOptions,
   hold = false,
   carouselRef = null,
+  uniquePath = null,
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [maxSlide, setMaxSlide] = useState(0);
@@ -79,6 +80,7 @@ const Carousel = ({
                   options={options}
                   displayRatingToStars={displayRatingToStars}
                   currentSlide={currentSlide}
+                  uniquePath={uniquePath}
                   hold={hold}
                   {...data}
                 />

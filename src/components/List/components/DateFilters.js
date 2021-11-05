@@ -40,7 +40,7 @@ const DateFilter = ({ initCommand }) => {
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DateRangePicker
             inputFormat={'yyyy/MM/dd'}
-            mask={'____-__-__'}
+            mask={'____/__/__'}
             startText={'시작일'}
             endText={'종료일'}
             value={values}

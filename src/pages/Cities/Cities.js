@@ -23,6 +23,7 @@ const Cities = () => {
   const [currentService, setCurrentService] = useState(1);
   const [magazineData, setMagazineData] = useState([]);
   const [spotData, setSpotData] = useState([]);
+  const [serviceStream, setServiceStream] = useState([]);
 
   useEffect(() => {
     MultipleApiCall([
@@ -41,6 +42,17 @@ const Cities = () => {
       })
       .then(response => {
         setSpotData(response);
+        return MultipleApiCall([
+          { url: 'http://localhost:8001/categories/service', method: 'GET' },
+          { url: 'http://localhost:8001/categories/main', method: 'GET' },
+          {
+            url: 'http://localhost:8001/products/classification/1',
+            method: 'GET',
+          },
+        ]);
+      })
+      .then(response => {
+        const [serviceData, categoryData, slider1] = response;
       });
   }, []);
 

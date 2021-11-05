@@ -1,5 +1,5 @@
 export const ApiCall = async (url, method = 'POST', data = {}) => {
-  const token = localStorage.getItem('token') || null;
+  const token = 'Bearer ' + localStorage.getItem('token');
   const request = {
     method,
     credentials: 'include',
