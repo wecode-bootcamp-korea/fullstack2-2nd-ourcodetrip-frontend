@@ -23,7 +23,7 @@ export const useUser = () => {
 
   const editUserInfo = useCallback(
     userInfo => {
-      dispatch(editUserInfoAction(userInfo));
+      dispatch(editUserInfoAction({ userInfo }));
     },
     [dispatch]
   );

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import { useUser } from '../../hooks/userHook';
 
 const SignIn = () => {
   const history = useHistory();
+  const { login } = useUser();
 
   const KakaoLoginHandler = () => {
     window.Kakao.Auth.login({
@@ -23,11 +25,23 @@ const SignIn = () => {
           })
           .then(data => {
             localStorage.setItem('token', data.data);
-            if (data.message === 'created') {
-              alert('환영합니다');
-            } else {
-              alert('다시 시도해주세요');
-            }
+            fetch('http://localhost:8001/users/profile/', {
+              method: 'GET',
+              headers: {
+                Authorization: 'bearer ' + localStorage.getItem('token'),
+                'Content-Type': 'application/json',
+              },
+            })
+              .then(res => res.json())
+              .then(info => {
+                console.log(info);
+                if (info.message === 'success') {
+                  login({ userinfo: info.data.name });
+                  alert(`${info.data.name}님 환영합니다.`);
+                } else {
+                  alert('다시 시도해주세요');
+                }
+              });
           });
       },
       fail: err => {
