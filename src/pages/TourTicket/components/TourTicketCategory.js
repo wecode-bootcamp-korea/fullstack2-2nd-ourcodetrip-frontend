@@ -13,7 +13,10 @@ const TourTicketCategory = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const result = await ApiCall('/categories/main&sub', 'GET');
+      const result = await ApiCall(
+        'http://localhost:8001/categories/main&sub',
+        'GET'
+      );
       const categoryList = await result.data;
       categoryList.forEach((category, categoryIdx) => {
         category.SubCategory.unshift({

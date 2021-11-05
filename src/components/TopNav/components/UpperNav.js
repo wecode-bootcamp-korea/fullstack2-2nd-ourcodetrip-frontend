@@ -46,7 +46,7 @@ const UpperNav = () => {
               );
             })}
             <UserMenuList>
-              <SignUpButton color={changingColor} to="/signup">
+              <SignUpButton color={changingColor} to="/signin">
                 회원가입
               </SignUpButton>
             </UserMenuList>

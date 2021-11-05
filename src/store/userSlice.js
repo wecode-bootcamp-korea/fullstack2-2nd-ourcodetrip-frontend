@@ -21,10 +21,7 @@ const userSlice = createSlice({
       return initialState;
     },
     editUserInfoAction: (state, { payload }) => {
-      state.userInfo = { ...state.userInfo, ...payload };
-    },
-    changeUserInfo: (st, pl) => {
-      //payload안에 있는 유저 정보를 setState
+      state.userInfo = { ...state.userInfo, ...payload.userInfo };
     },
   },
 });

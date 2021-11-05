@@ -11,8 +11,8 @@ export const useUser = () => {
   const dispatch = useDispatch();
 
   const login = useCallback(
-    ({ userInfo, accessToken }) => {
-      dispatch(loginAction({ userInfo, accessToken }));
+    (userInfo, accessToken) => {
+      dispatch(loginAction({ userInfo: userInfo, accessToken: accessToken }));
     },
     [dispatch]
   );
@@ -23,7 +23,7 @@ export const useUser = () => {
 
   const editUserInfo = useCallback(
     userInfo => {
-      dispatch(editUserInfoAction({ userInfo }));
+      dispatch(editUserInfoAction({ userInfo: userInfo }));
     },
     [dispatch]
   );
