@@ -49,7 +49,7 @@ const ManagingProfileSection = props => {
             src="https://d2yoing0loi5gh.cloudfront.net/assets/default/user_profile_image-414acc60b27f0a258bec14c82b70dc361fc6768da9289f924f887bec1fc33849.png"
             alt="기본 사진"
           />
-          <h1>이민재</h1>
+          <h1>{name}</h1>
         </Title>
         <Name>
           <div>이름</div>
@@ -61,7 +61,7 @@ const ManagingProfileSection = props => {
         </Email>
         <PhoneNumber>
           <div>연락처</div>
-          <span>{phoneNumber}</span>
+          <span>010-0123-9876</span>
         </PhoneNumber>
         <LinkedSns>
           <div>SNS 연동</div>
