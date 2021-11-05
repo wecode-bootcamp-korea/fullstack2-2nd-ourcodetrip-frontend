@@ -25,7 +25,7 @@ const EmptyList = () => {
       <Suggestion>
         {cityCard.map(ele => (
           <SuggestionCard>
-            <Link to="/cities">
+            <Link to="/cities?city=Seoul">
               <ImageBox>
                 <Image src={ele.imgCardBg} alt={ele.region} />
               </ImageBox>

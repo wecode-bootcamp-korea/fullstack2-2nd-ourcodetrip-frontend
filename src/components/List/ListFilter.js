@@ -49,7 +49,9 @@ const ListFilter = ({ priceRange = [1000, 100000], setQuery }) => {
 
 export default ListFilter;
 
-const ListFilterContainer = styled.div``;
+const ListFilterContainer = styled.div`
+  min-height: 542px;
+`;
 
 const HeaderBox = styled.div`
   display: flex;

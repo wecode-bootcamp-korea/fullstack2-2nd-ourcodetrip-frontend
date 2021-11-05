@@ -48,12 +48,16 @@ const Main = () => {
           <h2>어디로 떠나세요?</h2>
           <button>
             <MdLocationCity className="cityIcon" />
-            <Link to="/">
+            <Link to="/cities?city=Seouls">
               <span>전체 도시</span>
             </Link>
           </button>
         </div>
-        <Carousel cardData={data.cities} options={cityCarousel} />
+        <Carousel
+          cardData={data.cities}
+          options={cityCarousel}
+          uniquePath={'/cities'}
+        />
       </CitySuggestion>
       <MainBanner>
         <Carousel cardData={data.banners} options={banner} />

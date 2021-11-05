@@ -6,6 +6,7 @@ import Carousel from '../../components/Carousel/Carousel';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { listCards } from '../../components/Carousel/defaultOptions';
 import { displayRatingToStars } from '../../utils/displayRatingToStars';
+import EmptyList from './components/EmptyList';
 
 const WishList = () => {
   const [wishListData, setWishListData] = useState([]);
@@ -14,12 +15,13 @@ const WishList = () => {
   const [suggestionData, setSuggestionData] = useState([]);
 
   useEffect(() => {
-    MultipleApiCall([{ url: 'data/wishlist.json', method: 'GET' }]).then(
-      ([initData]) => {
-        setWishListData(Object.values(initData));
-        setCities(Object.keys(initData));
-      }
-    );
+    MultipleApiCall([
+      { url: 'http://localhost:8001/users/wishlist', method: 'GET' },
+    ]).then(([initData]) => {
+      // console.log(initData.data);
+      setWishListData(Object.values(initData.data));
+      setCities(Object.keys(initData.data));
+    });
   }, []);
 
   useEffect(() => {
@@ -28,7 +30,9 @@ const WishList = () => {
     });
   }, [selectedTab]);
 
-  return (
+  return !wishListData.length ? (
+    <EmptyList />
+  ) : (
     <React.Fragment>
       <Main>
         <HeaderContainer>
@@ -50,8 +54,8 @@ const WishList = () => {
             ))}
           </TabContainer>
           <ProductContainer>
-            {wishListData.length !== 0 &&
-              wishListData[selectedTab].map(ele => {
+            {wishListData?.length !== 0 &&
+              wishListData[selectedTab]?.map(ele => {
                 return (
                   <Cards
                     options={listCards}

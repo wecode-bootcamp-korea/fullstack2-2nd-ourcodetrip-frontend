@@ -74,7 +74,8 @@ const TourTicketDetail = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:8000/products/${id}`)
+    window.scrollTo({ top: 0 });
+    fetch(`http://localhost:8001/products/${id}`)
       .then(res => res.json())
       .then(res => {
         setData(res.data);
@@ -85,7 +86,7 @@ const TourTicketDetail = () => {
         }
         setOptions(arr);
       });
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     window.addEventListener('scroll', showTab);

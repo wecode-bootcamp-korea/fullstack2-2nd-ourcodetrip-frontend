@@ -28,8 +28,19 @@ const TourTicketList = () => {
     }
   }, [sortingCriteria, history]);
 
+  // useEffect(() => {
+  //   ApiCall(
+  //     `http://localhost:8001/products/offers?city=seoul&tour${query}`,
+  //     'GET'
+  //   ).then(data => {
+  //     console.log(data);
+  //     // setListData(data.list);
+  //     // setPriceRange(getPriceRange(data.list));
+  //   });
+  // }, [query]);
+
   useEffect(() => {
-    ApiCall('/data/pagenation.json', 'GET').then(data => {
+    ApiCall(`/data/pagenation.json`, 'GET').then(data => {
       setListData(data.list);
       setPriceRange(getPriceRange(data.list));
     });
@@ -80,6 +91,5 @@ const ListContainer = styled.section`
 `;
 
 const FilterContainer = styled.aside`
-  height: 800px;
   width: 250px;
 `;

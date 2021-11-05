@@ -45,6 +45,7 @@ const Experiences = () => {
       <CityCarouselContainer>
         <Carousel
           cardData={data.formattedCities}
+          uniquePath={'/cities?city=Seoul'}
           options={{
             ...expCityCarousel,
             customCardStyle: {

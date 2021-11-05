@@ -6,6 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { BsLightningChargeFill } from 'react-icons/bs';
 import { HiBadgeCheck } from 'react-icons/hi';
+import { ApiCall } from '../../utils/ApiCall';
 
 const Cards = ({
   type,
@@ -13,6 +14,7 @@ const Cards = ({
   imgUrl,
   category,
   region,
+  city,
   title,
   rating,
   totalReviews,
@@ -27,11 +29,18 @@ const Cards = ({
   slideNumber,
   currentSlide,
   hold,
+  uniquePath,
 }) => {
   const [imageReady, setImageReady] = useState(false);
   const [likeButtonClicked, setlikeButtonClicked] = useState(onUsersWishList);
   const hoverEffectRef = useRef();
   const history = useHistory();
+
+  const likeButtonApiCall = id => {
+    ApiCall(`http://localhost:8001/users/wishlist/${id}`, 'POST').then(
+      console.log
+    );
+  };
 
   useEffect(() => {
     hoverEffectRef.current.addEventListener('mouseover', hoverEffect);
@@ -80,8 +89,7 @@ const Cards = ({
       type={type}
       options={options}
       onClick={() => {
-        alert(`[임시] 상품페이지로 이동합니다\n?id=${id}&category=${category}`);
-        history.push(`/detail/${id}`);
+        history.push(uniquePath || `/tourticket/${id}`);
       }}
       className="Card"
       onMouseEnter={hoverEffect}
@@ -109,7 +117,9 @@ const Cards = ({
         {showContent ? (
           <InfoContainer options={options}>
             <div className="cardHeader">
-              <div className="categoryRegion">{`${category} ・ ${region}`}</div>
+              <div className="categoryRegion">{`${category} ・ ${
+                city || region
+              }`}</div>
               <div className="textWrap">
                 <h3>{title}</h3>
               </div>
@@ -165,9 +175,7 @@ const Cards = ({
           onClick={event => {
             event.stopPropagation();
             setlikeButtonClicked(!likeButtonClicked);
-            alert(
-              `[임시] 위시리스트 버튼을 눌렀습니다.\n?id=${id}&region=${region}`
-            );
+            likeButtonApiCall(id);
           }}
         >
           {likeButtonClicked ? <FaHeart /> : <FaRegHeart />}
