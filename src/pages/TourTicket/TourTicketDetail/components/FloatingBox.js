@@ -32,18 +32,19 @@ const FloatingBox = ({
       <BoxContainer>
         <BoxHeader>
           <Price>
-            {productType.name === '티켓' && discountRate !== null && (
-              <Discount>
-                <OriginPrice>
-                  {new Intl.NumberFormat('ko-KR').format(standardPrice)}원
-                </OriginPrice>
-                
-                <span>
-                  <FiArrowDown />
-                  {discountRate * 100}%
-                </span>
-              </Discount>
-            )}
+            {productType.name === '티켓' ||
+              (discountRate !== null && (
+                <Discount>
+                  <OriginPrice>
+                    {new Intl.NumberFormat('ko-KR').format(standardPrice)}원
+                  </OriginPrice>
+                  
+                  <span>
+                    <FiArrowDown />
+                    {discountRate * 100}%
+                  </span>
+                </Discount>
+              ))}
             <SalePrice>
               <span>
                 {discountRate === null

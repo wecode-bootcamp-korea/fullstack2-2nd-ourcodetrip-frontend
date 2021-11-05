@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   BsInfoCircle,
@@ -28,6 +29,8 @@ const TourTicketDetail = () => {
   const infoRef = useRef();
   const refundRef = useRef();
   const reviewRef = useRef();
+
+  const { id } = useParams();
 
   const handleWish = () => {
     setWishButton(!wishButton);
@@ -71,7 +74,7 @@ const TourTicketDetail = () => {
   };
 
   useEffect(() => {
-    fetch('/data/ticket.json')
+    fetch(`http://localhost:8000/products/${id}`)
       .then(res => res.json())
       .then(res => {
         setData(res.data);
