@@ -38,9 +38,9 @@ const ChoiceTicketBox = ({
                   <span>
                     {option.amount} x {option.price.toLocaleString()}원
                   </span>
-                  <span>
+                  <SelectedTotalPrice>
                     {Number(option.amount * option.price).toLocaleString()}원
-                  </span>
+                  </SelectedTotalPrice>
                 </div>
               </SelectedOption>
             );
@@ -84,11 +84,11 @@ const SelectedOption = styled.div`
   padding: 25px 0;
   border-bottom: 1px solid #dee2e6;
   color: #848c94;
+`;
 
-  span:last-child {
-    margin-left: 30px;
-    color: #495055;
-  }
+const SelectedTotalPrice = styled.span`
+  margin-left: 30px;
+  color: #495055;
 `;
 
 const TotalPrice = styled.div`

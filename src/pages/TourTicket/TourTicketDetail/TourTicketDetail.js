@@ -19,16 +19,18 @@ import ReviewBoard from '../../../components/Boards/ReviewBoard/ReviewBoard';
 const TourTicketDetail = () => {
   const [wishButton, setWishButton] = useState(false);
   const [wishCount, setWishCount] = useState(12345);
-  const [scrollTab, setScrollTab] = useState(false);
+  const [showScrollTab, setShowScrollTab] = useState(false);
   const [data, setData] = useState('');
   const [options, setOptions] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const ticketRef = useRef();
-  const productRef = useRef();
-  const infoRef = useRef();
-  const refundRef = useRef();
-  const reviewRef = useRef();
+  const multipleRefs = {
+    ticket: useRef(),
+    product: useRef(),
+    info: useRef(),
+    refund: useRef(),
+    review: useRef(),
+  };
 
   const { id } = useParams();
 
@@ -38,38 +40,36 @@ const TourTicketDetail = () => {
   };
 
   const showTab = () => {
-    if (window.scrollY > 400) {
-      setScrollTab(true);
-    } else {
-      setScrollTab(false);
-    }
+    const DETAIL_NAV_SCROLLY_THRESHOLD = 400;
+    setShowScrollTab(window.scrollY > DETAIL_NAV_SCROLLY_THRESHOLD);
   };
+
   const onIncrease = e => {
-    const option = [...options];
-    for (let i = 0; i < option.length; i++) {
-      if (e === option[i].id) {
-        option[i].amount = option[i].amount + 1;
-        setOptions(option);
-        getTotalPrice(option);
+    const currentOptions = [...options];
+    for (let option in currentOptions) {
+      if (e === currentOptions[option].id) {
+        currentOptions[option].amount = currentOptions[option].amount + 1;
+        setOptions(currentOptions);
+        getTotalPrice(currentOptions);
       }
     }
   };
 
   const onDecrease = e => {
-    const option = [...options];
-    for (let i = 0; i < option.length; i++) {
-      if (e === option[i].id) {
-        if (option[i].amount > 0) {
-          option[i].amount = option[i].amount - 1;
-          setOptions(option);
-          getTotalPrice(option);
+    const currentOptions = [...options];
+    for (let option in currentOptions) {
+      if (e === currentOptions[option].id) {
+        if (currentOptions[option].amount > 0) {
+          currentOptions[option].amount = currentOptions[option].amount - 1;
+          setOptions(currentOptions);
+          getTotalPrice(currentOptions);
         }
       }
     }
   };
 
-  const getTotalPrice = arr => {
-    const sum = arr.reduce((acc, cur) => acc + cur.price * cur.amount, 0);
+  const getTotalPrice = options => {
+    const sum = options.reduce((acc, cur) => acc + cur.price * cur.amount, 0);
     setTotalPrice(sum);
   };
 
@@ -80,11 +80,11 @@ const TourTicketDetail = () => {
       .then(res => {
         setData(res.data);
         if (!res.data.TicketOption) return;
-        const arr = [...res.data.TicketOption];
-        for (let i = 0; i < arr.length; i++) {
-          arr[i].amount = 0;
+        const options = [...res.data.TicketOption];
+        for (let option in options) {
+          options[option].amount = 0;
         }
-        setOptions(arr);
+        setOptions(options);
       });
   }, [id]);
 
@@ -113,29 +113,31 @@ const TourTicketDetail = () => {
             </Tag>
             <ReviewPoint
               onClick={() => {
-                reviewRef.current.scrollIntoView({ behavior: 'smooth' });
+                multipleRefs.review.current.scrollIntoView({
+                  behavior: 'smooth',
+                });
               }}
             >
-              <span>★★★★★</span>
-              <span>4.7</span>
+              <ReviewScore>★★★★★</ReviewScore>
+              <ReviewScore>4.7</ReviewScore>
               {` `}
-              <span>{`(39)`}</span>
-              <span>{'>'}</span>
+              <ReviewScore>{`(39)`}</ReviewScore>
+              <ReviewScore>{'>'}</ReviewScore>
             </ReviewPoint>
           </header>
 
           <HeadContainer>
-            <li>
+            <ProductSummary>
               <MdMobileFriendly /> <span>e-ticket</span>
-            </li>
-            <li>
+            </ProductSummary>
+            <ProductSummary>
               <BsCalendarCheck />
               <span>{`유효기간(~12.31) 내 사용`}</span>
-            </li>
-            <li>
+            </ProductSummary>
+            <ProductSummary>
               <BsGlobe />
               <span>한국어</span>
-            </li>
+            </ProductSummary>
           </HeadContainer>
 
           <BoxItem>
@@ -144,8 +146,8 @@ const TourTicketDetail = () => {
               <BsInfoCircle />
             </span>
             <BoxBody>
-              <h3>🎈 입장권 할인</h3>
-              <p>
+              <BoxTitle>🎈 입장권 할인</BoxTitle>
+              <ProductDescription>
                 - 본 티켓은 주말/평일 상관없이 사용할 수 있습니다.
                 <br />- 본 티켓은 구매 후 유효기간 내 언제든 방문할 수 있는
                 상품입니다. <br />- 유효기간 내 사용하지 못한 티켓은
@@ -153,11 +155,11 @@ const TourTicketDetail = () => {
                 <br />- 서울스카이 꼭대기에서 즐기는 아찔한 이색체험
                 '브릿지투어' 예약을 희망하시는 분들은 아워코드트립 검색창에{' '}
                 {'['}서울스카이 브릿지{']'} 를 검색해보세요.
-              </p>
+              </ProductDescription>
             </BoxBody>
           </BoxItem>
 
-          <OptionBox ref={ticketRef}>
+          <OptionBox ref={multipleRefs.ticket}>
             {data && data.Product.ProductType.name === '티켓' ? (
               <ChoiceTicketBox
                 valid={options && options.expireDate}
@@ -173,9 +175,9 @@ const TourTicketDetail = () => {
           </OptionBox>
           <ProductInfo
             productImage={data && data.Product.ProductImage}
-            ref={productRef}
+            ref={multipleRefs.product}
           />
-          <Information ref={infoRef}>
+          <Information ref={multipleRefs.info}>
             <h2>이용 안내</h2>
             <img
               src="http://drive.google.com/uc?export=view&id=14LRoJN0p-ji2MNFN1IrJb1Bj7DQBbiZ-"
@@ -183,8 +185,8 @@ const TourTicketDetail = () => {
             />
             <br></br>
           </Information>
-          <Refund ref={refundRef}>
-            <h2>환불 안내</h2>
+          <Refund ref={multipleRefs.refund}>
+            <RefundTitle>환불 안내</RefundTitle>
             <img
               src="http://drive.google.com/uc?export=view&id=1Na-XoLp0FOPqmy0hgiyFeEKXlUnkL09f"
               alt="ticketRefund"
@@ -200,30 +202,27 @@ const TourTicketDetail = () => {
             <PartnerName>{data && data.Partner.name}</PartnerName>
             <div>{data && data.Partner.introduce}</div>
           </PartnerInfo>
-          <ReviewPhoto ref={reviewRef} />
+          <ReviewPhoto ref={multipleRefs.review} />
           <ReviewBoard />
         </Contents>
         <FloatingBox
           wishButton={wishButton}
           handleWish={handleWish}
           wishCount={wishCount}
-          ticketRef={ticketRef}
+          ticketRef={multipleRefs.ticket}
           standardPrice={data && data.standardPrice}
           discountRate={data && data.discountRate}
           partner={data && data.Partner.name}
           productType={data && data.Product.ProductType}
         />
-        <ScrollTab
-          ticketRef={ticketRef}
-          productRef={productRef}
-          infoRef={infoRef}
-          refundRef={refundRef}
-          reviewRef={reviewRef}
-          scrollTab={scrollTab}
-          productType={data && data.Product.ProductType}
-        />
+        {showScrollTab && (
+          <ScrollTab
+            multipleRefs={multipleRefs}
+            productType={data && data.Product.ProductType}
+          />
+        )}
       </Main>
-      {scrollTab && <TabLine></TabLine>}
+      {showScrollTab && <TabLine></TabLine>}
     </>
   );
 };
@@ -281,22 +280,24 @@ const ReviewPoint = styled.div`
   padding: 10px 0;
   margin-top: 20px;
   cursor: pointer;
+`;
 
-  span:first-child {
+const ReviewScore = styled.span`
+  &:first-child {
     color: #51abf3;
     margin-right: 4px;
   }
 
-  span:nth-child(2) {
+  &:nth-child(2) {
     font-weight: 600;
   }
 
-  span:nth-child(3) {
+  &:nth-child(3) {
     color: #848c94;
     margin-right: 4px;
   }
 
-  span:last-child {
+  &:last-child {
     color: #848c94;
     font-weight: 700;
   }
@@ -309,16 +310,15 @@ const HeadContainer = styled.ul`
   border: 1px solid #e8ecef;
   border-width: 1px 0;
   font-size: 15px;
+`;
 
-  li {
-    flex-basis: 1 500px;
+const ProductSummary = styled.li`
+  flex-basis: 1 500px;
+  padding: 12px;
+  width: 50%;
 
-    padding: 12px;
-    width: 50%;
-
-    span {
-      margin-left: 10px;
-    }
+  span {
+    margin-left: 10px;
   }
 `;
 
@@ -340,17 +340,17 @@ const BoxItem = styled.div`
 const BoxBody = styled.div`
   display: flex;
   flex-direction: column;
+`;
 
-  h3 {
-    margin-bottom: 8px;
-    font-size: 16px;
-    font-weight: 700;
-  }
+const BoxTitle = styled.h3`
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 700;
+`;
 
-  p {
-    line-height: 170%;
-    font-size: 15px;
-  }
+const ProductDescription = styled.p`
+  line-height: 170%;
+  font-size: 15px;
 `;
 
 const OptionBox = styled.section`
@@ -372,18 +372,13 @@ const Information = styled.div`
 const Refund = styled.div`
   border-bottom: 1px solid #e8ecef;
   padding: 30px 0;
+`;
 
-  h2 {
-    margin: 16px 0;
-    color: #343a40;
-    font-size: 22px;
-    font-weight: 700;
-  }
-
-  div {
-    height: 500px;
-    background-color: skyblue;
-  }
+const RefundTitle = styled.h2`
+  margin: 16px 0;
+  color: #343a40;
+  font-size: 22px;
+  font-weight: 700;
 `;
 
 const PartnerInfo = styled.div`

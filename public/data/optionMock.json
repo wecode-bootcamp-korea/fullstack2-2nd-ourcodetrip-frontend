@@ -18,23 +18,5 @@
       "price": 30000,
       "valid": "유효기간 : 구매즉시 ~ 12/31까지"
     }
-  ],
-  "productImage": [
-    {
-      "id": 1,
-      "imageUrl": "이미지"
-    },
-    {
-      "id": 2,
-      "imageUrl": "이미지"
-    },
-    {
-      "id": 3,
-      "imageUrl": "이미지"
-    },
-    {
-      "id": 4,
-      "imageUrl": "이미지"
-    }
   ]
 }

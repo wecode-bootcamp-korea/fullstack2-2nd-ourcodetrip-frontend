@@ -28,23 +28,22 @@ const FloatingBox = ({
   const discountPrice = standardPrice - standardPrice * discountRate;
 
   return (
-    <Floating>
+    <Floating discount={discountRate}>
       <BoxContainer>
         <BoxHeader>
           <Price>
-            {productType.name === '티켓' ||
-              (discountRate !== null && (
-                <Discount>
-                  <OriginPrice>
-                    {new Intl.NumberFormat('ko-KR').format(standardPrice)}원
-                  </OriginPrice>
-                  
-                  <span>
-                    <FiArrowDown />
-                    {discountRate * 100}%
-                  </span>
-                </Discount>
-              ))}
+            {discountRate !== null && (
+              <Discount>
+                <OriginPrice>
+                  {new Intl.NumberFormat('ko-KR').format(standardPrice)}원
+                </OriginPrice>
+                
+                <span>
+                  <FiArrowDown />
+                  {discountRate * 100}%
+                </span>
+              </Discount>
+            )}
             <SalePrice>
               <span>
                 {discountRate === null
@@ -107,7 +106,7 @@ const Floating = styled.div`
   right: 180px;
   padding-top: 20px;
   width: 320px;
-  height: 260px;
+  height: ${({ discount }) => (discount ? '260px' : '240px')};
   border: 1px solid #e7eaed;
   border-radius: 2px;
   background-color: #ffffff;
@@ -185,6 +184,7 @@ const ChoiceButton = styled.button`
 const WishButton = styled.button`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 10px;
   border: 1px solid #ced4d9;
