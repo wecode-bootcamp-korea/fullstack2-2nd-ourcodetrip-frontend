@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import Switch from '@mui/material/Switch';
 
 const ManagingProfileSection = props => {
-  const { name, email, phoneNumber, isSmsAgreed, isEmailAgreed } =
-    props.userData;
+  const { name, email, isSmsAgreed, isEmailAgreed } = props.userData;
   const { isKakaoLinked, setIsKakaoLinked } = props;
 
   const KakaoLoginHandler = () => {
