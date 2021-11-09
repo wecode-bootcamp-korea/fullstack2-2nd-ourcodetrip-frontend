@@ -18,7 +18,6 @@ const WishList = () => {
     MultipleApiCall([
       { url: 'http://localhost:8001/users/wishlist', method: 'GET' },
     ]).then(([initData]) => {
-      // console.log(initData.data);
       setWishListData(Object.values(initData.data));
       setCities(Object.keys(initData.data));
     });

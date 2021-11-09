@@ -15,15 +15,12 @@ import { BsChevronRight } from 'react-icons/bs';
 import MultiCarousel from '../../components/Carousel/MultiCarousel';
 
 const Cities = () => {
-  // const [key, value] = props.location?.search?.slice(1)?.split('=');
-  // const querySearch = { [key]: value };
-
   const [initData, setInitData] = useState([]);
   const [sliderData, setSliderData] = useState([]);
   const [currentService, setCurrentService] = useState(1);
   const [magazineData, setMagazineData] = useState([]);
   const [spotData, setSpotData] = useState([]);
-  const [serviceStream, setServiceStream] = useState([]);
+  const [realData, setRealData] = useState([]);
 
   useEffect(() => {
     MultipleApiCall([
@@ -52,7 +49,8 @@ const Cities = () => {
         ]);
       })
       .then(response => {
-        const [serviceData, categoryData, slider1] = response;
+        const slider1 = response[2];
+        setRealData(slider1.data);
       });
   }, []);
 
@@ -101,7 +99,7 @@ const Cities = () => {
         ]}
       />
       <SectionHeader title={'추천 상품'} />
-      <Carousel cardData={sliderData?.list} hold={false} />
+      <Carousel cardData={realData?.list} hold={false} />
       <SectionHeader
         title={'투어&티켓 베스트셀러'}
         subLink={'/'}

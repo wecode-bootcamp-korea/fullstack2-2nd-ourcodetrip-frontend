@@ -28,30 +28,23 @@ const TourTicketList = () => {
     }
   }, [sortingCriteria, history]);
 
-  // useEffect(() => {
-  //   ApiCall(
-  //     `http://localhost:8001/products/offers?city=seoul&tour${query}`,
-  //     'GET'
-  //   ).then(data => {
-  //     console.log(data);
-  //     // setListData(data.list);
-  //     // setPriceRange(getPriceRange(data.list));
-  //   });
-  // }, [query]);
-
   useEffect(() => {
-    ApiCall(`/data/pagenation.json`, 'GET').then(data => {
-      setListData(data.list);
-      setPriceRange(getPriceRange(data.list));
+    ApiCall(
+      `http://localhost:8001/products/filter/offers?city=seoul&${query}`,
+      'GET'
+    ).then(({ data }) => {
+      setPriceRange(getPriceRange(data));
+      setListData(data);
     });
   }, [query]);
 
   const getPriceRange = prodArr => {
-    const prices = prodArr.map(prod => {
+    if (!prodArr.length) return;
+    const prices = prodArr?.map(prod => {
       return prod.offerPrice;
     });
-    const min = Math.min(...prices);
-    const max = Math.max(...prices);
+    const min = Math?.min(...prices);
+    const max = Math?.max(...prices);
     return [min, max];
   };
 

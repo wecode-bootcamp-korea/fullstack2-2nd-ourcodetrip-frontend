@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   sortingCriteria: {
-    categories: '',
-    sort: 'date:desc',
+    category: '',
+    sort: '',
     reviewScore: '',
     price: '',
     availableDate: '',
@@ -21,14 +21,14 @@ const tourTicketSlice = createSlice({
     initialAction: state => {
       state.sortingCriteria = {
         ...initialState.sortingCriteria,
-        categories: state.sortingCriteria.categories,
+        category: state.sortingCriteria.category,
         sort: state.sortingCriteria.sort,
       };
     },
     initialCategoryAction: state => {
       state.sortingCriteria = {
         ...state.sortingCriteria,
-        categories: '',
+        category: '',
       };
     },
   },
