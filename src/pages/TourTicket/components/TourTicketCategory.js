@@ -60,7 +60,7 @@ const TourTicketCategory = () => {
                           key={el.id}
                           onClick={() => {
                             setTourTicketSorting({
-                              criteria: 'categories',
+                              criteria: 'category',
                               value: el.query,
                             });
                           }}

@@ -49,7 +49,7 @@ const DatePickerBox = ({ price }) => {
           <DesktopDatePicker
             value={startDate}
             inputFormat={'yyyy년 MM월 dd일'}
-            mask={'____-__-__'}
+            mask={'____년 __월 __일'}
             onChange={newValue => {
               setStartDate(newValue);
             }}
