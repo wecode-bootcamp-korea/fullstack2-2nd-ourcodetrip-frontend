@@ -24,9 +24,10 @@ const SignUp = () => {
             return res.json();
           })
           .then(info => {
+            const { name } = info;
             if (info.message === 'created') {
-              login({ userinfo: info.name });
-              alert(`${info.name}님 환영합니다.`);
+              login({ userinfo: name });
+              alert(`${name}님 환영합니다.`);
             } else {
               alert('다시 시도해주세요');
             }

@@ -28,7 +28,6 @@ const EditingProfile = () => {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         const { data } = res;
         setUserData(data);
         setCheckedEmail(data.isEmailAgreed);

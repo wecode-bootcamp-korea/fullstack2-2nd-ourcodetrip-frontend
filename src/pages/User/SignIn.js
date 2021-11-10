@@ -34,9 +34,10 @@ const SignIn = () => {
             })
               .then(res => res.json())
               .then(info => {
+                const { name } = info.data;
                 if (info.message === 'success') {
-                  login({ name: info.data.name });
-                  alert(`${info.data.name}님 환영합니다.`);
+                  login({ name });
+                  alert(`${name}님 환영합니다.`);
                 } else {
                   alert('다시 시도해주세요');
                 }
