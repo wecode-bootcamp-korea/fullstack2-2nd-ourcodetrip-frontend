@@ -80,6 +80,7 @@ const colors = {
   primaryBlue: '#2B95EC',
   primaryBlue_2: '#51abf3',
   hoverBlue: '#f5fbff',
+  yellow: '#fee500',
 };
 
 const borders = {
