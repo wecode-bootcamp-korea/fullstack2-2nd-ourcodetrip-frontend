@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useUser } from '../../hooks/userHook';
@@ -24,12 +24,12 @@ const SignUp = () => {
             return res.json();
           })
           .then(info => {
-            console.log(info);
-            if (info.message === 'created') {
-              login({ userinfo: info.data.name });
-              alert(`${info.data.name}님 환영합니다.`);
+            const { message, name } = info;
+            if (message === 'created') {
+              login({ userinfo: name });
+              alert(`환영합니다.`);
             } else {
-              alert('다시 시도해주세요');
+              alert('다시 시도해주세요!');
             }
           });
       },
@@ -73,8 +73,7 @@ const SignUp = () => {
 export default SignUp;
 
 const SignUpWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  ${({ theme }) => theme.flexCenterContainer}
   margin: 100px 0;
   width: 100%;
 `;
@@ -106,16 +105,19 @@ const TitleContainer = styled.div`
 `;
 
 const KakaoLogin = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 25px 0 0 55px;
-  height: 48px;
-  width: 332px;
-  background-color: #fee500;
-  font-weight: 600;
-  font-size: 16px;
-  border: none;
+  ${({ theme }) => {
+    const { flexCenterContainer, colors } = theme;
+    return css`
+      ${flexCenterContainer};
+      margin: 25px 0 0 55px;
+      height: 48px;
+      width: 332px;
+      background-color: ${colors.yellow};
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+    `;
+  }}
 
   img {
     margin-right: 7px;
@@ -126,7 +128,7 @@ const KakaoLogin = styled.button`
 
 const FooterContainer = styled.div`
   margin-top: 50px;
-  color: gray;
+  color: ${({ theme }) => theme.colors.gray_2};
   opacity: 0.7;
 
   a {
