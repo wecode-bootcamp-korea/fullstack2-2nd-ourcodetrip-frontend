@@ -8,7 +8,7 @@ import { useUser } from '../../../../hooks/userHook';
 const EditingProfileMainSection = props => {
   const history = useHistory();
   const { editUserInfo } = useUser();
-  const { name, email, phoneNumber } = props.userData;
+  const { name, email } = props.userData;
   const {
     checkedEmail,
     checkedSms,

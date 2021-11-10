@@ -45,8 +45,8 @@ const ManagingProfile = () => {
 export default ManagingProfile;
 
 const ProfileWrapper = styled.div`
-  margin: 60px auto;
-  max-width: 1060px;
+  ${({ theme }) => theme.Wrapper}
+  margin-top: 60px;
 `;
 
 const Header = styled.header`
