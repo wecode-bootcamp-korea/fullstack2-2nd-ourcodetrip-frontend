@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Slider from '@mui/material/Slider';
-import tourTicketHook from '../../../hooks/tourTicketHook';
-import filteringHook from '../../../hooks/filteringHook';
+import { useTourTicket } from '../../../hooks/tourTicketHook';
+import { useFiltering } from '../../../hooks/filteringHook';
 
 const PriceFilter = ({ min = 1000, max = 200000, initCommand }) => {
   const [value, setValue] = useState([min, max]);
-  const { setTourTicketSorting } = tourTicketHook();
-  const { setIsFilterActive } = filteringHook();
+  const { setTourTicketSorting } = useTourTicket();
+  const { setIsFilterActive } = useFiltering();
 
   const minDistance = 5000;
   const sliderRef = useRef(null);

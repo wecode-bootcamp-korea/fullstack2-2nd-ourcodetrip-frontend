@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
-import tourTicketHook from '../../hooks/tourTicketHook';
+import { useTourTicket } from '../../hooks/tourTicketHook';
 import List from '../../components/List/List';
 import ListFilter from '../../components/List/ListFilter';
 import TourTicketCategory from './components/TourTicketCategory';
@@ -11,25 +11,24 @@ const TourTicketList = () => {
   const [listData, setListData] = useState([]);
   const [priceRange, setPriceRange] = useState([]);
   const [didInit, setDidInit] = useState(false);
-  const [query, setQuery] = useState('');
-  const { sortingCriteria } = tourTicketHook();
+  const { sortingCriteria } = useTourTicket();
 
   const mount = useRef(false);
-  const history = useHistory();
   useEffect(() => {
+    let criteria;
     if (!mount.current) {
       mount.current = true;
+      const sortingCriteriaInLocalStorage = JSON.parse(
+        JSON.parse(localStorage.getItem('persist:root')).tourTicketReducer
+      ).sortingCriteria;
+      criteria = sortingCriteriaInLocalStorage;
     } else {
-      const query = Object.entries(sortingCriteria)
-        .filter(value => value[1] !== '')
-        .map(value => value.join('='))
-        .join('&');
-      history.push(`/tourticket/list?${query}`);
-      setQuery(query);
+      criteria = sortingCriteria;
     }
-  }, [sortingCriteria, history]);
-
-  useEffect(() => {
+    const query = Object.entries(criteria)
+      .filter(value => value[1] !== '')
+      .map(value => value.join('='))
+      .join('&');
     ApiCall(
       `http://localhost:8001/products/filter/offers?city=seoul&${query}`,
       'GET'
@@ -40,8 +39,7 @@ const TourTicketList = () => {
       }
       setListData(data);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+  }, [sortingCriteria, didInit]);
 
   const getPriceRange = prodArr => {
     if (!prodArr) return;
@@ -59,7 +57,8 @@ const TourTicketList = () => {
       <ListContainer>
         <FilterContainer>
           <TourTicketCategory />
-          <ListFilter priceRange={priceRange} setQuery={setQuery} />
+          {/* <ListFilter priceRange={priceRange} setQuery={setQuery} /> */}
+          <ListFilter priceRange={priceRange} />
         </FilterContainer>
         <main>
           <List listData={listData} />

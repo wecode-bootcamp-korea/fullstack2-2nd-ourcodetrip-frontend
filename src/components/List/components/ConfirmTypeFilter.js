@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Checkbox from '@mui/material/Checkbox';
 import { BsLightningChargeFill } from 'react-icons/bs';
-import tourTicketHook from '../../../hooks/tourTicketHook';
-import filteringHook from '../../../hooks/filteringHook';
+import { useTourTicket } from '../../../hooks/tourTicketHook';
+import { useFiltering } from '../../../hooks/filteringHook';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const ConfirmTypeFilter = ({ initCommand }) => {
   const [value, setValue] = useState(false);
 
-  const { setTourTicketSorting } = tourTicketHook();
-  const { setIsFilterActive } = filteringHook();
+  const { setTourTicketSorting } = useTourTicket();
+  const { setIsFilterActive } = useFiltering();
 
   const handleChange = event => {
     setValue(event.target.checked);

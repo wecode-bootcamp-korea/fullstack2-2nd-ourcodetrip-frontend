@@ -1,9 +1,9 @@
 import React, { useState, useRef, useCallback } from 'react';
 import styled, { css } from 'styled-components';
-import tourTicketHook from '../../hooks/tourTicketHook';
+import { useTourTicket } from '../../hooks/tourTicketHook';
 
 const Collapse = ({ children, title, collapseWidth, icon, id }) => {
-  const { setCategoryInit } = tourTicketHook();
+  const { setCategoryInit } = useTourTicket();
   const [isOpen, setIsOpen] = useState(false);
   const parentRef = useRef(null);
   const childRef = useRef(null);
