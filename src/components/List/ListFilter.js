@@ -5,20 +5,23 @@ import DateFilter from './components/DateFilters';
 import PriceFilter from './components/PriceFilter';
 import RatingFilter from './components/RatingFilter';
 import ConfirmTypeFilter from './components/ConfirmTypeFilter';
-import filteringHook from '../../hooks/filteringHook';
-import tourTicketHook from '../../hooks/tourTicketHook';
+import { useFiltering } from '../../hooks/filteringHook';
+import { useTourTicket } from '../../hooks/tourTicketHook';
 
-const ListFilter = ({ priceRange = [1000, 100000], setQuery }) => {
+const ListFilter = ({ priceRange = [1000, 100000] }) => {
   const [initCommand, setInitCommand] = useState(false);
-  const { isFilterActive, setIsFilterActive } = filteringHook();
-  const { setInitialAction } = tourTicketHook();
+  const { isFilterActive, setIsFilterActive } = useFiltering();
+  const { setInitialAction } = useTourTicket();
 
   const initializing = () => {
-    if (!isFilterActive) return;
+    const isFilterActiveInLocalStorage = JSON.parse(
+      JSON.parse(localStorage.getItem('persist:root')).filteringReducer
+    ).isFilterActive;
+    if (!isFilterActiveInLocalStorage) return;
     setInitialAction();
     setInitCommand(true);
     setIsFilterActive(false);
-    setQuery('');
+    // setQuery('');
   };
 
   useEffect(() => {

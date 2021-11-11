@@ -9,8 +9,8 @@ import filteringReducer from './filteringSlice';
 
 const persistConfig = {
   key: 'root',
-  // storage: storageSession,
   storage: storage,
+  blacklist: ['userReducer'],
 };
 
 const rootReducer = combineReducers({

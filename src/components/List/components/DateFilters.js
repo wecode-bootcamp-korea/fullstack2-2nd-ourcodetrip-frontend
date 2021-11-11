@@ -6,13 +6,13 @@ import DateRangePicker from '@mui/lab/DateRangePicker';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
-import tourTicketHook from '../../../hooks/tourTicketHook';
-import filteringHook from '../../../hooks/filteringHook';
+import { useTourTicket } from '../../../hooks/tourTicketHook';
+import { useFiltering } from '../../../hooks/filteringHook';
 
 const DateFilter = ({ initCommand }) => {
   const [values, setValues] = useState([null, null]);
-  const { setTourTicketSorting } = tourTicketHook();
-  const { setIsFilterActive } = filteringHook();
+  const { setTourTicketSorting } = useTourTicket();
+  const { setIsFilterActive } = useFiltering();
 
   useEffect(() => {
     if (!values[0] || !values[1]) return;

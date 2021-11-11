@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filteringAction } from '../store/filteringSlice';
 
-const useFiltering = () => {
+export const useFiltering = () => {
   const { isFilterActive } = useSelector(state => state.filteringReducer);
   const dispatch = useDispatch();
 
@@ -15,5 +15,3 @@ const useFiltering = () => {
 
   return { isFilterActive, setIsFilterActive };
 };
-
-export default useFiltering;

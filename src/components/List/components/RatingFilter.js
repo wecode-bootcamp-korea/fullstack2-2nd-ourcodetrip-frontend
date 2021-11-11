@@ -5,14 +5,14 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import tourTicketHook from '../../../hooks/tourTicketHook';
-import filteringHook from '../../../hooks/filteringHook';
+import { useTourTicket } from '../../../hooks/tourTicketHook';
+import { useFiltering } from '../../../hooks/filteringHook';
 
 const RatingFilter = ({ initCommand }) => {
   const [value, setValue] = useState('');
 
-  const { setTourTicketSorting } = tourTicketHook();
-  const { setIsFilterActive } = filteringHook();
+  const { setTourTicketSorting } = useTourTicket();
+  const { setIsFilterActive } = useFiltering();
 
   const radioGroupRef = useRef(null);
 

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import Collapse from '../../../components/List/Collapse';
 import { ApiCall } from '../../../utils/ApiCall';
 import { categoryQuery } from '../../../utils/categoryLinks';
-import tourTicketHook from '../../../hooks/tourTicketHook';
+import { useTourTicket } from '../../../hooks/tourTicketHook';
 
 const TourTicketCategory = () => {
-  const { setTourTicketSorting } = tourTicketHook();
+  const { setTourTicketSorting } = useTourTicket();
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
 

@@ -6,7 +6,7 @@ import {
   initialCategoryAction,
 } from '../store/tourTicketSlice';
 
-const useTourTicket = () => {
+export const useTourTicket = () => {
   const { sortingCriteria } = useSelector(state => state.tourTicketReducer);
   const dispatch = useDispatch();
 
@@ -32,5 +32,3 @@ const useTourTicket = () => {
     setCategoryInit,
   };
 };
-
-export default useTourTicket;

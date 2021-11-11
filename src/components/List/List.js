@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Cards from '../Carousel/Cards';
 import { listCards } from '../Carousel/defaultOptions';
 import { displayRatingToStars } from '../../utils/displayRatingToStars';
-import tourTicketHook from '../../hooks/tourTicketHook';
+import { useTourTicket } from '../../hooks/tourTicketHook';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
@@ -13,7 +13,7 @@ const List = ({ listData = [] }) => {
   const [pageCount, setPageCount] = useState(0);
   const [currentSort, setCurrentSort] = useState([3, 'new##:desc']);
 
-  const { setTourTicketSorting } = tourTicketHook();
+  const { setTourTicketSorting } = useTourTicket();
 
   const sortingCriteria = {
     priceAsc: { text: '낮은 가격순', query: 'price:asc' },
