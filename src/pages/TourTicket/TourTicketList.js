@@ -10,6 +10,7 @@ import { ApiCall } from '../../utils/ApiCall';
 const TourTicketList = () => {
   const [listData, setListData] = useState([]);
   const [priceRange, setPriceRange] = useState([]);
+  const [didInit, setDidInit] = useState(false);
   const [query, setQuery] = useState('');
   const { sortingCriteria } = tourTicketHook();
 
@@ -33,13 +34,17 @@ const TourTicketList = () => {
       `http://localhost:8001/products/filter/offers?city=seoul&${query}`,
       'GET'
     ).then(({ data }) => {
-      setPriceRange(getPriceRange(data));
+      if (!didInit) {
+        setPriceRange(getPriceRange(data));
+        setDidInit(true);
+      }
       setListData(data);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   const getPriceRange = prodArr => {
-    if (!prodArr.length) return;
+    if (!prodArr) return;
     const prices = prodArr?.map(prod => {
       return prod.offerPrice;
     });
