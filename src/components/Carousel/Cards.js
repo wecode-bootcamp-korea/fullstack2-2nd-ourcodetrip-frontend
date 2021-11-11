@@ -37,9 +37,7 @@ const Cards = ({
   const history = useHistory();
 
   const likeButtonApiCall = id => {
-    ApiCall(`http://localhost:8001/users/wishlist/${id}`, 'POST').then(
-      console.log
-    );
+    ApiCall(`http://localhost:8001/users/wishlist/${id}`, 'POST');
   };
 
   useEffect(() => {

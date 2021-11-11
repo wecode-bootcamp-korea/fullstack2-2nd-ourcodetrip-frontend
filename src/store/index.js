@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import { persistReducer, persistStore } from 'redux-persist';
 // import storageSession from 'redux-persist/lib/storage/session';
 import storage from 'redux-persist/lib/storage';
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
   reducer: persistReducer(persistConfig, rootReducer),
-  middleware: getDefaultMiddleware => [...getDefaultMiddleware(), logger],
+  middleware: getDefaultMiddleware => [...getDefaultMiddleware()],
 });
 
 export const persistor = persistStore(store);
