@@ -6,6 +6,7 @@ import List from '../../components/List/List';
 import ListFilter from '../../components/List/ListFilter';
 import TourTicketCategory from './components/TourTicketCategory';
 import { ApiCall } from '../../utils/ApiCall';
+import { API_ENDPOINT } from '../../api';
 
 const TourTicketList = () => {
   const [listData, setListData] = useState([]);
@@ -30,7 +31,7 @@ const TourTicketList = () => {
       .map(value => value.join('='))
       .join('&');
     ApiCall(
-      `http://localhost:8001/products/filter/offers?city=seoul&${query}`,
+      `${API_ENDPOINT}/products/filter/offers?city=seoul&${query}`,
       'GET'
     ).then(({ data }) => {
       if (!didInit) {

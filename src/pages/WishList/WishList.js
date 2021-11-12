@@ -7,6 +7,7 @@ import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { listCards } from '../../components/Carousel/defaultOptions';
 import { displayRatingToStars } from '../../utils/displayRatingToStars';
 import EmptyList from './components/EmptyList';
+import { API_ENDPOINT } from '../../api';
 
 const WishList = () => {
   const [wishListData, setWishListData] = useState([]);
@@ -16,7 +17,7 @@ const WishList = () => {
 
   useEffect(() => {
     MultipleApiCall([
-      { url: 'http://localhost:8001/users/wishlist', method: 'GET' },
+      { url: `${API_ENDPOINT}/users/wishlist`, method: 'GET' },
     ]).then(([initData]) => {
       setWishListData(Object.values(initData.data));
       setCities(Object.keys(initData.data));

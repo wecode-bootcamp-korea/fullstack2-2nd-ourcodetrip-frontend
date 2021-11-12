@@ -13,6 +13,7 @@ import SectionHeader from '../../components/SectionHeader/SectionHeader';
 
 import { BsChevronRight } from 'react-icons/bs';
 import MultiCarousel from '../../components/Carousel/MultiCarousel';
+import { API_ENDPOINT } from '../../api';
 
 const Cities = () => {
   const [initData, setInitData] = useState([]);
@@ -40,10 +41,10 @@ const Cities = () => {
       .then(response => {
         setSpotData(response);
         return MultipleApiCall([
-          { url: 'http://localhost:8001/categories/service', method: 'GET' },
-          { url: 'http://localhost:8001/categories/main', method: 'GET' },
+          { url: `${API_ENDPOINT}/categories/service`, method: 'GET' },
+          { url: `${API_ENDPOINT}/categories/main`, method: 'GET' },
           {
-            url: 'http://localhost:8001/products/classification/1',
+            url: `${API_ENDPOINT}/products/classification/1`,
             method: 'GET',
           },
         ]);
