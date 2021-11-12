@@ -28,7 +28,6 @@ const EditingProfile = () => {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         const { data } = res;
         setUserData(data);
         setCheckedEmail(data.isEmailAgreed);
@@ -61,8 +60,8 @@ const EditingProfile = () => {
 export default EditingProfile;
 
 const ProfileWrapper = styled.div`
-  margin: 60px auto;
-  max-width: 1060px;
+  ${({ theme }) => theme.Wrapper};
+  margin-top: 60px;
 `;
 
 const Header = styled.header`

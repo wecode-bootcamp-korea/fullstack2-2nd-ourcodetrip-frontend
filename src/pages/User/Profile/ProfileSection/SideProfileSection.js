@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
@@ -53,10 +53,8 @@ const SideProfileSection = props => {
 export default SideProfileSection;
 
 const ProfileManagement = styled.div`
-  display: flex;
+  ${({ theme }) => theme.flexCenterContainer};
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 40px 10px;
   height: 250px;
   width: 250px;
@@ -103,18 +101,20 @@ const PointAndCoupon = styled.div`
 `;
 
 const PointAndCouponHeader = styled.dl`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flexColumnContainer}
   justify-content: space-between;
   height: 37px;
   font-size: 14px;
 `;
 
 const PointAndCouponContent = styled.dl`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 40px;
-  font-weight: 700;
-  color: #2b96ed;
+  ${({ theme }) => {
+    return css`
+      ${theme.flexColumnContainer}
+      justify-content: space-between;
+      height: 40px;
+      font-weight: 600;
+      color: ${theme.colors.primaryBlue};
+    `;
+  }}
 `;

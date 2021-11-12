@@ -17,14 +17,11 @@ const EditingProfileMainSection = props => {
     isKakaoLinked,
     setIsKakaoLinked,
   } = props;
+
   const [inputName, setInputName] = useState(name);
 
   const handleInputName = e => {
     setInputName(e.target.value);
-  };
-
-  const handleCancle = () => {
-    history.push('/');
   };
 
   const handleSave = () => {
@@ -42,7 +39,6 @@ const EditingProfileMainSection = props => {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         editUserInfo({ name: res.data.name });
       });
   };
@@ -167,7 +163,13 @@ const EditingProfileMainSection = props => {
           </section>
         </MarketingOptIn>
         <section>
-          <CancelButton onClick={handleCancle}>취소하기</CancelButton>
+          <CancelButton
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            취소하기
+          </CancelButton>
           <SaveButton
             onClick={() => {
               handleSave();
@@ -192,8 +194,7 @@ const EditingProfileMainSection = props => {
 export default EditingProfileMainSection;
 
 const ProfileMain = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flexColumnContainer}
   align-items: center;
   height: 770px;
   width: 780px;
@@ -262,8 +263,7 @@ const MarketingOptIn = styled(LinkedSns)`
   }
 
   section {
-    display: flex;
-    flex-direction: column;
+    ${({ theme }) => theme.flexColumnContainer}
     justify-content: space-between;
     height: 80px;
   }
@@ -275,7 +275,7 @@ const EmailOptInButton = styled.label`
 `;
 
 const EmailOptOutButton = styled.label`
-  font-size: 1rem; ;
+  font-size: 1rem;
 `;
 
 const SmsOptInButton = styled.label`
@@ -293,13 +293,13 @@ const CancelButton = styled.button`
   width: 350px;
   border: none;
   border-radius: 10px;
-  background-color: #e9ecef;
+  background-color: ${({ theme }) => theme.colors.gray_2};
   color: white;
   font-size: 15px;
   font-weight: 600;
 `;
 const SaveButton = styled(CancelButton)`
-  background-color: #51abf3;
+  background-color: ${({ theme }) => theme.colors.primaryBlue};
 `;
 
 const AccountManagement = styled(ProfileMain)`
@@ -322,8 +322,7 @@ const AccountManagement = styled(ProfileMain)`
       width: 70px;
     }
     span {
-      display: flex;
-      justify-content: center;
+      ${({ theme }) => theme.flexCenterContainer};
       height: 15px;
       width: 600px;
       opacity: 0.3;

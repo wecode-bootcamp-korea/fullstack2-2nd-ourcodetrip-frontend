@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -85,7 +85,7 @@ const SignIn = () => {
 export default SignIn;
 
 const SignInWrapper = styled.div`
-  ${({ theme }) => theme.flexCenterContainer}
+  ${({ theme }) => theme.flexCenterContainer};
   margin: 100px 0;
   width: 100%;
 `;

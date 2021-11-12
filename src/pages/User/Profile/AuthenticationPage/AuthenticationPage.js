@@ -27,7 +27,6 @@ const AuthenticationPage = () => {
             return res.json();
           })
           .then(data => {
-            console.log(data.message);
             if (data.message === ('success' || 'updated')) {
               history.push('/edit');
             } else {
@@ -86,17 +85,14 @@ const AuthenticationPage = () => {
 export default AuthenticationPage;
 
 const AuthenticationPageWrapper = styled.div`
-  display: flex;
+  ${({ theme }) => theme.flexCenterContainer};
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin: 100px 0;
   width: 100%;
 `;
 
 const TitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flexColumnContainer}
   align-items: center;
   justify-content: space-between;
   margin: 20px auto;
@@ -115,7 +111,7 @@ const TitleContainer = styled.div`
     text-align: center;
     line-height: 18px;
     font-size: 13px;
-    color: #848c94;
+    color: ${({ theme }) => theme.colors.gray_1};
     letter-spacing: 1px;
   }
 `;
@@ -134,7 +130,7 @@ const KakaoLoginButton = styled.button`
   border: 1px solid rgba(0, 0, 0, 0.1);
   font-weight: 600;
   font-size: 20px;
-  background-color: #fee500;
+  background-color: ${({ theme }) => theme.colors.yellow};
 
   img {
     margin-right: 7px;
@@ -164,8 +160,7 @@ const DividedLine = styled.div`
 `;
 
 const PasswordContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flexColumnContainer}
   margin: 40px auto;
   padding-left: 40px;
 
@@ -192,6 +187,6 @@ const PasswordContainer = styled.div`
     background-color: #b2dffc;
     font-size: 15px;
     font-weight: 800;
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.white};
   }
 `;

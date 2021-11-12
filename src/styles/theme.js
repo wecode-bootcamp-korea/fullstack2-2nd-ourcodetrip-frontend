@@ -15,6 +15,11 @@ const flexCenterContainer = css`
   align-items: center;
 `;
 
+const flexColumnContainer = css`
+  display: flex;
+  flex-direction: column;
+`;
+
 const fontSizes = {
   xs: calcRem(11),
   small: calcRem(12),
@@ -160,6 +165,7 @@ const theme = {
   Wrapper,
   buttons,
   flexCenterContainer,
+  flexColumnContainer,
   FilterContainer,
 };
 
