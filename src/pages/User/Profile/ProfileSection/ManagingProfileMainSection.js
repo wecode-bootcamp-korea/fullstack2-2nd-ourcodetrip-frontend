@@ -100,8 +100,7 @@ const ManagingProfileSection = props => {
 export default ManagingProfileSection;
 
 const ProfileMain = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flexColumnContainer};
   align-items: center;
   height: 700px;
   width: 780px;
@@ -119,7 +118,7 @@ const Editing = styled.div`
     padding: 10px 27px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 7px;
-    color: #495056;
+    ${({ theme }) => theme.colors.black};
   }
 `;
 
@@ -174,8 +173,7 @@ const MarketingOptIn = styled(LinkedSns)`
   align-items: flex-start;
 
   section {
-    display: flex;
-    flex-direction: column;
+    ${({ theme }) => theme.flexColumnContainer};
     justify-content: space-between;
     height: 50px;
   }
@@ -205,8 +203,7 @@ const AccountManagement = styled(ProfileMain)`
     }
 
     span {
-      display: flex;
-      justify-content: center;
+      ${({ theme }) => theme.flexCenterContainer};
       height: 15px;
       width: 600px;
       opacity: 0.3;

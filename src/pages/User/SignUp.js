@@ -73,7 +73,7 @@ const SignUp = () => {
 export default SignUp;
 
 const SignUpWrapper = styled.div`
-  ${({ theme }) => theme.flexCenterContainer}
+  ${({ theme }) => theme.flexCenterContainer};
   margin: 100px 0;
   width: 100%;
 `;

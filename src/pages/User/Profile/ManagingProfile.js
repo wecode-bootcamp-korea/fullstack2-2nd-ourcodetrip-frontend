@@ -18,7 +18,6 @@ const ManagingProfile = () => {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         const { data } = res;
         setIsKakaoLinked(data.platform === 'kakao');
         setUserData(data);
@@ -45,7 +44,7 @@ const ManagingProfile = () => {
 export default ManagingProfile;
 
 const ProfileWrapper = styled.div`
-  ${({ theme }) => theme.Wrapper}
+  ${({ theme }) => theme.Wrapper};
   margin-top: 60px;
 `;
 
