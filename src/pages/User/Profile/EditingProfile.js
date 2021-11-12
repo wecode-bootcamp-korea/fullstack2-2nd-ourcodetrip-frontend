@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import SideProfileSection from './ProfileSection/SideProfileSection';
 import EditingProfileMainSection from './ProfileSection/EditingProfileMainSection';
+import { API_ENDPOINT } from '../../../api';
 
 const EditingProfile = () => {
   const [userData, setUserData] = useState([]);
@@ -19,7 +20,7 @@ const EditingProfile = () => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:8001/users/profile/', {
+    fetch(`${API_ENDPOINT}/users/profile/`, {
       method: 'GET',
       headers: {
         Authorization: 'bearer ' + localStorage.getItem('token'),

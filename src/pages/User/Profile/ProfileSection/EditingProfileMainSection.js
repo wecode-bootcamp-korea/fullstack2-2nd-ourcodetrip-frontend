@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router';
 import Switch from '@mui/material/Switch';
 import { useUser } from '../../../../hooks/userHook';
+import { API_ENDPOINT } from '../../../../api';
 
 const EditingProfileMainSection = props => {
   const history = useHistory();
@@ -25,7 +26,7 @@ const EditingProfileMainSection = props => {
   };
 
   const handleSave = () => {
-    fetch('http://localhost:8001/users/profile/', {
+    fetch(`${API_ENDPOINT}/users/profile/`, {
       method: 'PATCH',
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -49,7 +50,7 @@ const EditingProfileMainSection = props => {
       scope: 'profile_nickname,profile_image,account_email',
       success: authObj => {
         const bearer = 'Bearer' + ' ' + authObj.access_token;
-        fetch('http://localhost:8001/users/auth/kakao/link', {
+        fetch(`${API_ENDPOINT}/users/auth/kakao/link`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

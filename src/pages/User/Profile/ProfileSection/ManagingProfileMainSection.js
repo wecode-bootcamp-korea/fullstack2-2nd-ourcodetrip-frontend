@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Switch from '@mui/material/Switch';
+import { API_ENDPOINT } from '../../../../api';
 
 const ManagingProfileSection = props => {
   const { name, email, isSmsAgreed, isEmailAgreed } = props.userData;
@@ -14,7 +15,7 @@ const ManagingProfileSection = props => {
       scope: 'profile_nickname,profile_image,account_email',
       success: authObj => {
         const bearer = 'Bearer' + ' ' + authObj.access_token;
-        fetch('http://localhost:8001/users/auth/kakao/link', {
+        fetch(`${API_ENDPOINT}/users/auth/kakao/link`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import SideProfileSection from './ProfileSection/SideProfileSection';
 import ManagingProfileMainSection from './ProfileSection/ManagingProfileMainSection';
+import { API_ENDPOINT } from '../../../api';
 
 const ManagingProfile = () => {
   const [userData, setUserData] = useState([]);
   const [isKakaoLinked, setIsKakaoLinked] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:8001/users/profile/', {
+    fetch(`${API_ENDPOINT}/users/profile/`, {
       method: 'GET',
       headers: {
         Authorization: 'bearer ' + localStorage.getItem('token'),

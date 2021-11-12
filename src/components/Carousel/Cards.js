@@ -7,6 +7,7 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { BsLightningChargeFill } from 'react-icons/bs';
 import { HiBadgeCheck } from 'react-icons/hi';
 import { ApiCall } from '../../utils/ApiCall';
+import { API_ENDPOINT } from '../../api';
 
 const Cards = ({
   type,
@@ -37,7 +38,7 @@ const Cards = ({
   const history = useHistory();
 
   const likeButtonApiCall = id => {
-    ApiCall(`http://localhost:8001/users/wishlist/${id}`, 'POST');
+    ApiCall(`${API_ENDPOINT}/users/wishlist/${id}`, 'POST');
   };
 
   useEffect(() => {

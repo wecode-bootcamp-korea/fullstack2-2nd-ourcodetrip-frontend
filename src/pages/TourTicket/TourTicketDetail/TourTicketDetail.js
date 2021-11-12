@@ -15,6 +15,7 @@ import ScrollTab from './components/ScrollTab';
 import ChoiceTicketBox from './components/ChoiceTicketBox';
 import DatePickerBox from './components/DatePickerBox';
 import ReviewBoard from '../../../components/Boards/ReviewBoard/ReviewBoard';
+import { API_ENDPOINT } from '../../../api';
 
 const TourTicketDetail = () => {
   const [wishButton, setWishButton] = useState(false);
@@ -75,7 +76,7 @@ const TourTicketDetail = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    fetch(`http://localhost:8001/products/${id}`)
+    fetch(`${API_ENDPOINT}/products/${id}`)
       .then(res => res.json())
       .then(res => {
         setData(res.data);

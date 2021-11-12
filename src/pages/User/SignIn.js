@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useUser } from '../../hooks/userHook';
+import { API_ENDPOINT } from '../../api';
 
 const SignIn = () => {
   const history = useHistory();
@@ -13,7 +14,7 @@ const SignIn = () => {
       scope: 'profile_nickname,profile_image,account_email',
       success: authObj => {
         const bearer = 'Bearer' + ' ' + authObj.access_token;
-        fetch('http://localhost:8001/users/auth/kakao', {
+        fetch(`${API_ENDPOINT}/users/auth/kakao`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -25,7 +26,7 @@ const SignIn = () => {
           })
           .then(data => {
             localStorage.setItem('token', data.data);
-            fetch('http://localhost:8001/users/profile/', {
+            fetch(`${API_ENDPOINT}/users/profile/`, {
               method: 'GET',
               headers: {
                 Authorization: 'bearer ' + localStorage.getItem('token'),

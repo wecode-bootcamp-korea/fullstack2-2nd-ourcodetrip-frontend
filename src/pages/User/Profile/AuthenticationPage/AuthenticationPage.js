@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
 import { useState } from 'react';
+import { API_ENDPOINT } from '../../../../api';
 
 const AuthenticationPage = () => {
   const history = useHistory();
@@ -16,7 +17,7 @@ const AuthenticationPage = () => {
       scope: 'profile_nickname,profile_image,account_email',
       success: authObj => {
         const bearer = 'Bearer' + ' ' + authObj.access_token;
-        fetch('http://localhost:8001/users/auth/kakao', {
+        fetch(`${API_ENDPOINT}/users/auth/kakao`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

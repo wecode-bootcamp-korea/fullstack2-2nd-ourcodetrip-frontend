@@ -4,6 +4,7 @@ import Collapse from '../../../components/List/Collapse';
 import { ApiCall } from '../../../utils/ApiCall';
 import { categoryQuery } from '../../../utils/categoryLinks';
 import { useTourTicket } from '../../../hooks/tourTicketHook';
+import { API_ENDPOINT } from '../../../api';
 
 const TourTicketCategory = () => {
   const { setTourTicketSorting } = useTourTicket();
@@ -14,7 +15,7 @@ const TourTicketCategory = () => {
     const fetchData = async () => {
       setLoading(true);
       const result = await ApiCall(
-        'http://localhost:8001/categories/main&sub',
+        `${API_ENDPOINT}/categories/main&sub`,
         'GET'
       );
       const categoryList = await result.data;
